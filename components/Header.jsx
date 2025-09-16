@@ -10,36 +10,76 @@ const NavLink = ({ href, children }) => {
   return (
     <Link
       href={href}
-      className={`px-3 py-2 rounded-xl2 transition hover:bg-gray-100 ${active ? "text-brand font-semibold" : "text-gray-700"}`}
+      className={`px-3 py-2 rounded-xl2 transition hover:bg-gray-100 ${
+        active ? "text-brand font-semibold" : "text-gray-700"
+      }`}
     >
       {children}
     </Link>
   );
 };
 
+const NAV_LINKS = [
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/resources", label: "Resources" },
+  { href: "/articles", label: "Articles" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
       <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
         <Link href="/" className="font-bold tracking-tight text-lg">
           Inemesit<span className="text-brand">.</span>
         </Link>
+
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-2">
-          <NavLink href="/work">Work</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
+          {NAV_LINKS.map((l) => (
+            <NavLink key={l.href} href={l.href}>
+              {l.label}
+            </NavLink>
+          ))}
+          {/* Primary CTA — keep styles, only text changes */}
+          <Link
+            href="/contact"
+            className="ml-2 inline-flex items-center justify-center rounded-xl2 bg-brand px-4 py-2 text-white hover:opacity-90"
+          >
+            Let’s work
+          </Link>
         </nav>
-        <button onClick={() => setOpen(v => !v)} className="md:hidden p-2 rounded-xl2 hover:bg-gray-100" aria-label="Toggle Menu">
+
+        {/* Mobile menu button */}
+        <button
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden p-2 rounded-xl2 hover:bg-gray-100"
+          aria-label="Toggle Menu"
+          aria-expanded={open}
+        >
           <Menu size={20} />
         </button>
       </div>
+
+      {/* Mobile menu */}
       {open && (
         <div className="md:hidden border-t border-gray-100">
           <div className="mx-auto max-w-6xl px-4 py-2 flex flex-col">
-            <NavLink href="/work">Work</NavLink>
-            <NavLink href="/about">About</NavLink>
-            <NavLink href="/contact">Contact</NavLink>
+            {NAV_LINKS.map((l) => (
+              <NavLink key={l.href} href={l.href}>
+                {l.label}
+              </NavLink>
+            ))}
+            <Link
+              href="/contact"
+              className="mt-2 inline-flex items-center justify-center rounded-xl2 bg-brand px-4 py-2 text-white hover:opacity-90"
+            >
+              Let’s work
+            </Link>
           </div>
         </div>
       )}
