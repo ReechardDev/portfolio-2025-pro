@@ -2,9 +2,34 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import SectionHeader from "@/components/SectionHeader";
 import { getAllCaseStudies } from "@/lib/caseStudies";
+import SkillPills from "@/components/SkillPills";
 
 // Framer Motion hero (client component)
 const HeroMotion = dynamic(() => import("@/components/HeroMotion"), { ssr: false });
+
+const SKILLS = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "TailwindCSS",
+  "shadcn/ui",
+  "Lucide",
+  "Vercel",
+  "Git",
+  "GitHub",
+  "ESLint/Prettier",
+  "GA4",
+  "GTM (basic)",
+  "On-page SEO",
+  "Performance basics",
+  "Canva",
+  "Wireframes",
+  "Copywriting",
+  "Content Strategy",
+  "A/B testing basics",
+];
 
 export default async function HomePage() {
   const work = await getAllCaseStudies();
@@ -15,15 +40,14 @@ export default async function HomePage() {
       {/* Hero */}
       <HeroMotion />
 
-      {/* Logos / social proof strip (dummies) */}
-      <section className="mx-auto max-w-6xl px-4 py-8">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center opacity-70">
-          <div className="h-8 rounded bg-gray-100" aria-hidden />
-          <div className="h-8 rounded bg-gray-100" aria-hidden />
-          <div className="h-8 rounded bg-gray-100" aria-hidden />
-          <div className="h-8 rounded bg-gray-100" aria-hidden />
-        </div>
-        <p className="mt-3 text-xs text-gray-500">Trusted by local businesses & founders — swap with real logos later.</p>
+      {/* Skills (replaces the old logos/social proof strip) */}
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <SectionHeader
+          eyebrow="SKILLS"
+          title="Hard skills I use to ship"
+          text=""
+        />
+        <SkillPills skills={SKILLS} />
       </section>
 
       {/* Capabilities snapshot */}
