@@ -19,3 +19,11 @@ body {
 .prose img {
   border-radius: 1rem;
 }
+
+/* Shared component utilities */
+@layer components {
+  /* Light-blue hover feel for any bordered "place card" */
+  .hover-card {
+    @apply transition duration-200 hover:bg-sky-50/60 hover:border-brand-cta-hover;
+  }
+}

@@ -36,7 +36,10 @@ export default function ServicesPage() {
 
       <section className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {PLANS.map((p) => (
-          <div key={p.name} className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div
+            key={p.name}
+            className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover-card"
+          >
             {p.badge && (
               <div className="absolute -top-3 right-4 rounded-full bg-slate-900 px-3 py-1 text-xs text-white">
                 {p.badge}

@@ -1,4 +1,4 @@
-// app/(site)/resources/page.jsx
+// app/(site)/resources/page.jsx 
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
 const RESOURCES = [
@@ -33,7 +33,10 @@ export default function ResourcesPage() {
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         {RESOURCES.map((r) => (
-          <div key={r.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div
+            key={r.title}
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover-card"
+          >
             <div className="text-lg font-medium">{r.title}</div>
             <p className="mt-2 text-sm text-slate-600">{r.desc}</p>
             <div className="mt-1 text-xs text-slate-500">{r.meta}</div>

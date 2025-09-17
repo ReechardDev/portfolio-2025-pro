@@ -16,7 +16,7 @@ export default function AboutPage() {
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-gray-200 p-5">
+          <div className="rounded-2xl border border-gray-200 p-5 hover-card">
             <div className="font-semibold">Speed & Clarity</div>
             <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
               <li>Fast loads, solid Core Web Vitals</li>

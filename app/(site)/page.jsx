@@ -48,7 +48,7 @@ export default async function HomePage() {
           text="Product-minded web development with measurable impact."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-gray-200 p-5">
+          <div className="rounded-2xl border border-gray-200 p-5 hover-card">
             <div className="font-semibold">Design & UX</div>
             <p className="mt-2 text-gray-600 text-sm">
               Structure, copy hierarchy, and accessible components that guide users to action.
@@ -57,7 +57,7 @@ export default async function HomePage() {
               <li>IA & wireframes</li><li>Design systems</li><li>Content clarity</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-gray-200 p-5">
+          <div className="rounded-2xl border border-gray-200 p-5 hover-card">
             <div className="font-semibold">Build & Performance</div>
             <p className="mt-2 text-gray-600 text-sm">
               Next.js + Tailwind with an image strategy, routing, and best-in-class Web Vitals.
@@ -66,7 +66,7 @@ export default async function HomePage() {
               <li>LCP & CLS budgets</li><li>Responsive images</li><li>SSR/SSG routing</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-gray-200 p-5">
+          <div className="rounded-2xl border border-gray-200 p-5 hover-card">
             <div className="font-semibold">Measure & Grow</div>
             <p className="mt-2 text-gray-600 text-sm">
               Google analytics, events and funnels to prove what works and iterate with confidence.
@@ -114,17 +114,13 @@ export default async function HomePage() {
         </div>
         <div className="mt-6 text-center">
           <Link
-  href="/work"
-  className="inline-flex items-center justify-center rounded-xl2 border px-5 py-3
-             border-gray-200 hover:border-brand-cta-hover hover:text-brand-cta-hover transition"
->
-  Browse all work
-</Link>
+            href="/work"
+            className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 px-5 py-3 hover:border-brand-cta-hover hover:text-brand-cta-hover transition"
+          >
+            Browse all work
+          </Link>
         </div>
       </section>
-
-      {/* Service snapshots (unchanged content) */}
-      {/* ... keep your existing sections here ... */}
 
       {/* Final CTA band */}
       <section className="mx-auto max-w-6xl px-4 pb-20">
