@@ -114,11 +114,12 @@ export default async function HomePage() {
         </div>
         <div className="mt-6 text-center">
           <Link
-            href="/work"
-            className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 px-5 py-3 hover:bg-gray-50"
-          >
-            Browse all work
-          </Link>
+  href="/work"
+  className="inline-flex items-center justify-center rounded-xl2 border px-5 py-3
+             border-gray-200 hover:border-brand-cta-hover hover:text-brand-cta-hover transition"
+>
+  Browse all work
+</Link>
         </div>
       </section>
 

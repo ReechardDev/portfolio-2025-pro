@@ -15,8 +15,10 @@ export default function HeroMotion() {
         className="max-w-3xl"
       >
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">
-          Product-minded web developer for local businesses
+          Product-minded <span className="text-brand-cta-hover">web developer</span> for{" "}
+          <span className="text-brand-cta-hover">local businesses</span>
         </h1>
+
         <p className="mt-3 text-slate-600">
           Clean, conversion-ready websites with GA4 events for calls, WhatsApp and forms — built fast, measured, and improved.
         </p>

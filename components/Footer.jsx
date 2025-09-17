@@ -1,4 +1,6 @@
+// components/Footer.jsx
 import Link from "next/link";
+import ButtonCTA from "./ui/ButtonCTA";
 
 const FOOTER_LINKS = [
   { href: "/work", label: "Work" },
@@ -11,7 +13,7 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-top border-gray-100">
+    <footer className="mt-24 border-t border-sky-100 bg-sky-50">
       {/* Top band: message + CTA */}
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-2 items-center">
         <div>
@@ -21,12 +23,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="md:text-right">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-4 py-3 rounded-xl2 bg-brand text-white hover:opacity-90"
-          >
+          <ButtonCTA as={Link} href="/contact">
             Let’s work
-          </Link>
+          </ButtonCTA>
         </div>
       </div>
 
@@ -35,7 +34,10 @@ export default function Footer() {
         <ul className="flex flex-wrap gap-4 text-sm text-gray-600">
           {FOOTER_LINKS.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className="hover:text-gray-900">
+              <Link
+                href={l.href}
+                className="hover:text-brand-cta-hover transition"
+              >
                 {l.label}
               </Link>
             </li>

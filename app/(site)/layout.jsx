@@ -1,14 +1,13 @@
 // app/(site)/layout.jsx
 import Header from "../../components/Header";
-// If you want a footer on every page, uncomment the next line:
-// import Footer from "../../components/Footer";
+import Footer from "../../components/Footer";
 
 export default function SiteLayout({ children }) {
   return (
-    <>
+    <div className="min-h-dvh flex flex-col">
       <Header />
-      {children}
-      {/* <Footer /> */}
-    </>
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
   );
 }
