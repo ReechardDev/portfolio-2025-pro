@@ -1,29 +1,60 @@
-import SectionHeader from "@/components/SectionHeader";
-import MetricCard from "@/components/MetricCard";
-import { getCaseStudy } from "@/lib/caseStudies";
+// app/(site)/work/[slug]/page.jsx
+import Link from "next/link";
+import ButtonCTA from "../../../../components/ui/ButtonCTA";
+import { getAllCaseStudies, getCaseBySlug } from "../../../../lib/caseStudies";
+
+export async function generateStaticParams() {
+  const all = await getAllCaseStudies();
+  return all.map((c) => ({ slug: c.slug }));
+}
 
 export async function generateMetadata({ params }) {
-  const { meta } = await getCaseStudy(params.slug);
+  const item = await getCaseBySlug(params.slug);
   return {
-    title: `${meta.title} — Case Study`,
-    description: meta.summary || "Case study"
+    title: item ? `${item.title} — Case Study` : "Case Study",
+    description: item?.summary || "Case study",
   };
 }
 
 export default async function CaseStudyPage({ params }) {
-  const { meta, Content } = await getCaseStudy(params.slug);
-  return (
-    <article className="mx-auto max-w-3xl px-4 py-16 prose prose-slate">
-      <SectionHeader eyebrow={meta.role} title={meta.title} text={meta.summary} align="left" />
-      {meta.metrics?.length ? (
-        <div className="not-prose mt-6 grid gap-4 sm:grid-cols-3">
-          {meta.metrics.map((m, i) => <MetricCard key={i} label={m.label} value={m.value} hint={m.hint} />)}
-        </div>
-      ) : null}
+  const item = await getCaseBySlug(params.slug);
 
-      <div className="mt-8">
-        <Content />
+  if (!item) {
+    return (
+      <main className="mx-auto max-w-5xl px-4 py-16">
+        <h1 className="text-2xl font-semibold">Not found</h1>
+        <p className="mt-2 text-slate-600">This case study doesn’t exist.</p>
+        <div className="mt-6">
+          <ButtonCTA as={Link} href="/work">Back to work</ButtonCTA>
+        </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className="mx-auto max-w-5xl px-4 py-16">
+      <h1 className="text-3xl/tight font-semibold text-slate-900">{item.title}</h1>
+      <p className="mt-3 max-w-2xl text-slate-600">{item.summary}</p>
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <ButtonCTA as={Link} href="/contact">Start a project</ButtonCTA>
+        {item.liveUrl && (
+          <a
+            href={item.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+          >
+            Visit live site →
+          </a>
+        )}
+        <a
+          href="/work"
+          className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+        >
+          Back to work
+        </a>
       </div>
-    </article>
+    </main>
   );
 }

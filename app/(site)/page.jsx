@@ -1,13 +1,13 @@
+// app/(site)/page.jsx
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import SectionHeader from "@/components/SectionHeader";
-import { getAllCaseStudies } from "@/lib/caseStudies";
-import SkillPills from "@/components/SkillPills";
+import SectionHeader from "../../components/SectionHeader";
+import { getAllCaseStudies } from "../../lib/caseStudies";
+import SkillPills from "../../components/SkillPills";
 import ButtonCTA from "../../components/ui/ButtonCTA";
 
-
 // Framer Motion hero (client component)
-const HeroMotion = dynamic(() => import("@/components/HeroMotion"), { ssr: false });
+const HeroMotion = dynamic(() => import("../../components/HeroMotion"), { ssr: false });
 
 const SKILLS = [
   "HTML",
@@ -97,9 +97,11 @@ export default async function HomePage() {
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {featured.map((p) => (
-            <Link
+            <a
               key={p.slug}
-              href={`/work/${p.slug}`}
+              href={p.liveUrl || `/work/${p.slug}`}
+              target={p.liveUrl ? "_blank" : undefined}
+              rel={p.liveUrl ? "noopener noreferrer" : undefined}
               className="group rounded-2xl border border-gray-200 overflow-hidden hover:shadow-sm transition"
             >
               <img
@@ -108,12 +110,15 @@ export default async function HomePage() {
                 className="w-full aspect-video object-cover group-hover:scale-[1.02] transition"
               />
               <div className="p-4">
-                <div className="text-sm text-gray-500">
-                  {p.role} • {Array.isArray(p.stack) ? p.stack.join(", ") : p.stack}
-                </div>
+                {/* show tags instead of role/stack */}
+                {Array.isArray(p.tags) && p.tags.length > 0 ? (
+                  <div className="text-sm text-gray-500">{p.tags.join(" • ")}</div>
+                ) : (
+                  <div className="text-sm text-gray-500">Case study</div>
+                )}
                 <div className="mt-1 font-semibold">{p.title}</div>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
         <div className="mt-6 text-center">
@@ -173,31 +178,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <SectionHeader
-          eyebrow="Social Proof"
-          title="Clients say nice things"
-          text="Some testimonials from real clients."
-        />
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-gray-200 p-5">
-            <p className="text-gray-700">“Clear process, fast delivery, and our quote requests jumped.”</p>
-            <div className="mt-3 text-sm text-gray-500">Brittany — Infinity Lawns</div>
-          </div>
-          <div className="rounded-2xl border border-gray-200 p-5">
-            <p className="text-gray-700">
-              “Parents immediately understood our care plans. The site feels trustworthy.”
-            </p>
-            <div className="mt-3 text-sm text-gray-500">Robin — Senior-Care Owner</div>
-          </div>
-          <div className="rounded-2xl border border-gray-200 p-5">
-            <p className="text-gray-700">“Loved the attention to performance and accessibility.”</p>
-            <div className="mt-3 text-sm text-gray-500">Bannerman — E-commerce</div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA band */}
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <div className="rounded-2xl border border-gray-200 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -209,12 +189,9 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="shrink-0">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-5 py-3 rounded-xl2 bg-brand text-white hover:opacity-90"
-            >
+            <ButtonCTA as={Link} href="/contact">
               Start a project
-            </Link>
+            </ButtonCTA>
           </div>
         </div>
       </section>

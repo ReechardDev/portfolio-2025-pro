@@ -1,36 +1,59 @@
+// app/(site)/work/page.jsx
 import Link from "next/link";
-import SectionHeader from "../../../components/SectionHeader";
 import { getAllCaseStudies } from "../../../lib/caseStudies";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
+
 export default async function WorkPage() {
   const work = await getAllCaseStudies();
 
-
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
-      <SectionHeader eyebrow="Portfolio" title="Work" text="Case cards below summarize role, stack, and actions. Detailed case studies can be added per project." />
+    <main className="mx-auto max-w-6xl px-4 py-16">
+      <header className="max-w-2xl">
+        <h1 className="text-3xl/tight font-semibold text-slate-900">Selected Work</h1>
+        <p className="mt-2 text-slate-600">Case studies and live sites I’ve built and improved.</p>
+      </header>
 
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {work.map((p) => (
-          <Link
-            key={p.slug}
-            href={`/work/${p.slug}`}
-            className="group rounded-2xl border border-gray-200 overflow-hidden hover:shadow-sm transition"
+      <section className="mt-10 grid gap-6 sm:grid-cols-2">
+        {work.map((w) => (
+          <article
+            key={w.slug}
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
           >
-            <img
-              src={p.cover || "/og/default.png"}
-              alt={p.title || "Project cover"}
-              className="w-full aspect-video object-cover group-hover:scale-[1.02] transition"
-            />
-            <div className="p-4">
-              <div className="text-sm text-gray-500">
-                {p.role} • {Array.isArray(p.stack) ? p.stack.join(", ") : p.stack}
+            <div className="text-lg font-semibold text-slate-900">{w.title}</div>
+            <p className="mt-2 text-sm text-slate-600">{w.summary}</p>
+
+            {w.tags?.length ? (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {w.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-slate-200 px-2.5 py-1 text-xs text-slate-600"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
-              <div className="mt-1 font-semibold">{p.title}</div>
+            ) : null}
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <ButtonCTA as={Link} href={`/work/${w.slug}`}>
+                View case study
+              </ButtonCTA>
+
+              {w.liveUrl && (
+                <a
+                  href={w.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+                >
+                  Visit site →
+                </a>
+              )}
             </div>
-          </Link>
+          </article>
         ))}
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
