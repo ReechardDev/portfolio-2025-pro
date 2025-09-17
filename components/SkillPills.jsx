@@ -1,14 +1,18 @@
+// components/SkillPills.jsx
 export default function SkillPills({ skills = [] }) {
+  if (!Array.isArray(skills) || skills.length === 0) return null;
+
   return (
-    <div className="mt-4 flex flex-wrap gap-2">
+    <ul className="mt-4 flex flex-wrap gap-2" aria-label="Skills">
       {skills.map((s) => (
-        <span
+        <li
           key={s}
-          className="whitespace-nowrap rounded-full border border-emerald-200/60 bg-emerald-50 px-3 py-1 text-sm text-emerald-900/90 shadow-sm"
+          className="rounded-full border border-sky-200 bg-white px-3 py-1.5 text-xs text-slate-700
+                     transition hover:bg-sky-50 hover:border-brand-cta-hover hover:text-slate-900"
         >
           {s}
-        </span>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
