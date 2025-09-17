@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import ButtonCTA from "./ui/ButtonCTA";
 
 const NavLink = ({ href, children }) => {
   const pathname = usePathname();
@@ -10,6 +11,7 @@ const NavLink = ({ href, children }) => {
   return (
     <Link
       href={href}
+      aria-current={active ? "page" : undefined}
       className={`px-3 py-2 rounded-xl2 transition hover:bg-gray-100 ${
         active ? "text-brand font-semibold" : "text-gray-700"
       }`}
@@ -45,13 +47,11 @@ export default function Header() {
               {l.label}
             </NavLink>
           ))}
-          {/* Primary CTA — keep styles, only text changes */}
-          <Link
-            href="/contact"
-            className="ml-2 inline-flex items-center justify-center rounded-xl2 bg-brand px-4 py-2 text-white hover:opacity-90"
-          >
+
+          {/* Primary CTA */}
+          <ButtonCTA as={Link} href="/contact" className="ml-2">
             Let’s work
-          </Link>
+          </ButtonCTA>
         </nav>
 
         {/* Mobile menu button */}
@@ -74,12 +74,9 @@ export default function Header() {
                 {l.label}
               </NavLink>
             ))}
-            <Link
-              href="/contact"
-              className="mt-2 inline-flex items-center justify-center rounded-xl2 bg-brand px-4 py-2 text-white hover:opacity-90"
-            >
+            <ButtonCTA as={Link} href="/contact" className="mt-2">
               Let’s work
-            </Link>
+            </ButtonCTA>
           </div>
         </div>
       )}

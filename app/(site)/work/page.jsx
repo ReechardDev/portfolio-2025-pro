@@ -1,9 +1,10 @@
 import Link from "next/link";
-import SectionHeader from "@/components/SectionHeader";
-import { getAllCaseStudies } from "@/lib/caseStudies";
-
+import SectionHeader from "../../../components/SectionHeader";
+import { getAllCaseStudies } from "../../../lib/caseStudies";
+import ButtonCTA from "../../../components/ui/ButtonCTA";
 export default async function WorkPage() {
   const work = await getAllCaseStudies();
+
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">

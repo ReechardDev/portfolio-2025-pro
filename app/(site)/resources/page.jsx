@@ -1,54 +1,66 @@
-import SectionHeader from "@/components/SectionHeader";
-
-export const metadata = {
-  title: "Resources — Inemesit David",
-  description:
-    "Free checklists, GA4 templates, and Canva starters for service businesses.",
-};
+// app/(site)/resources/page.jsx
+import Link from "next/link";
+import ButtonCTA from "../../../components/ui/ButtonCTA";
 
 const RESOURCES = [
   {
     title: "Free Website Audit Checklist (PDF)",
-    desc: "Quick checks for IA, speed, metadata, and CTAs.",
-    href: "#", // replace with a real file later, e.g. /files/website-audit.pdf
+    href: "/downloads/audit-checklist.pdf",
+    desc: "25 quick checks for speed, SEO, UX, and conversion.",
+    kind: "download",
   },
   {
-    title: "GA4 Event Map Template (Sheet)",
-    desc: "Plan events, conversions, and UTM tags.",
-    href: "#", // e.g. Google Sheet link
+    title: "GA4 Starter Events (CSV)",
+    href: "/downloads/ga4-starter-events.csv",
+    desc: "Base events for call/WhatsApp/contact form tracking.",
+    kind: "download",
   },
   {
-    title: "Canva Post/Flyer Starter Pack",
-    desc: "Reusable layout system for service businesses.",
-    href: "#", // e.g. Canva template link
+    title: "Canva Portfolio Slide (Template)",
+    href: "https://example.com/canva-portfolio", // replace with your real link
+    desc: "Editable slide to present your work fast.",
+    kind: "external",
   },
 ];
 
 export default function ResourcesPage() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
-      <SectionHeader eyebrow="Freebies & tools" title="Resources" text="" />
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
+    <main className="mx-auto max-w-5xl px-4 py-16">
+      <h1 className="text-3xl/tight font-semibold text-slate-900">Resources</h1>
+      <p className="mt-2 text-slate-600">
+        Free tools and templates I use with clients.
+      </p>
+
+      <div className="mt-8 grid gap-6 sm:grid-cols-2">
         {RESOURCES.map((r) => (
           <div
             key={r.title}
-            className="rounded-2xl border border-gray-200 p-6 bg-white"
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
           >
-            <div className="font-semibold">{r.title}</div>
-            <p className="mt-2 text-sm text-gray-700">{r.desc}</p>
-            {r.href && r.href !== "#" && (
-              <a
-                href={r.href}
-                className="mt-4 inline-block text-brand text-sm"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open →
-              </a>
-            )}
+            <div className="text-lg font-medium">{r.title}</div>
+            <p className="mt-2 text-sm text-slate-600">{r.desc}</p>
+            <div className="mt-4">
+              {r.kind === "download" ? (
+                <ButtonCTA href={r.href}>Download</ButtonCTA>
+              ) : (
+                <a
+                  href={r.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+                >
+                  Open →
+                </a>
+              )}
+            </div>
           </div>
         ))}
       </div>
-    </section>
+
+      {/* keep this plain text—no placeholders */}
+      <div className="mt-8 text-xs text-gray-500">
+        Based on my standard discovery process.
+      </div>
+    </main>
   );
 }

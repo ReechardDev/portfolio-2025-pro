@@ -3,6 +3,8 @@ import dynamic from "next/dynamic";
 import SectionHeader from "@/components/SectionHeader";
 import { getAllCaseStudies } from "@/lib/caseStudies";
 import SkillPills from "@/components/SkillPills";
+import ButtonCTA from "../../components/ui/ButtonCTA";
+
 
 // Framer Motion hero (client component)
 const HeroMotion = dynamic(() => import("@/components/HeroMotion"), { ssr: false });
@@ -36,13 +38,9 @@ export default async function HomePage() {
       {/* Hero */}
       <HeroMotion />
 
-      {/* Skills (replaces the old logos/social proof strip) */}
+      {/* Skills */}
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <SectionHeader
-          eyebrow="SKILLS"
-          title="Skills I use in building"
-          text=""
-        />
+        <SectionHeader eyebrow="SKILLS" title="Skills I use in building" text="" />
         <SkillPills skills={SKILLS} />
       </section>
 
@@ -95,7 +93,7 @@ export default async function HomePage() {
         <SectionHeader
           eyebrow="Work"
           title="Recent case studies"
-          text="A few projects i've built for local business owners."
+          text="A few projects I've built for local business owners."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {featured.map((p) => (
@@ -128,6 +126,53 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Service-business snapshots */}
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <SectionHeader
+          eyebrow="Service Businesses"
+          title="Quick wins delivered"
+          text="Short, real outcomes for the kinds of businesses I specialize in."
+        />
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-gray-200 p-5">
+            <div className="text-xs font-semibold uppercase tracking-wider text-gray-500">Landscaping</div>
+            <div className="mt-1 font-semibold">Infinity Lawns & Beyond</div>
+            <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
+              <li><span className="font-medium">Problem:</span> Low website trust + few quote requests.</li>
+              <li><span className="font-medium">Move:</span> Clear service cards, sticky CTAs, GA4 events.</li>
+              <li><span className="font-medium">Win:</span> More “Request a Quote” clicks within first week.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-gray-200 p-5">
+            <div className="text-xs font-semibold uppercase tracking-wider text-gray-500">Senior Care</div>
+            <div className="mt-1 font-semibold">Robin’s Touch / Marie-Care</div>
+            <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
+              <li><span className="font-medium">Problem:</span> Confusing plans, weak conversions.</li>
+              <li><span className="font-medium">Move:</span> Clean plan grid, badges, WhatsApp/call events.</li>
+              <li><span className="font-medium">Win:</span> Clearer plans → more inquiries by phone/WhatsApp.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-gray-200 p-5">
+            <div className="text-xs font-semibold uppercase tracking-wider text-gray-500">Salon & Beauty</div>
+            <div className="mt-1 font-semibold">Greene Hair Luxury</div>
+            <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
+              <li><span className="font-medium">Problem:</span> Sparse visuals, low trust.</li>
+              <li><span className="font-medium">Move:</span> Gallery-first layout, testimonials, fast LCP.</li>
+              <li><span className="font-medium">Win:</span> More DM leads from IG + site.</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-gray-200 p-5">
+            <div className="text-xs font-semibold uppercase tracking-wider text-gray-500">Local Services</div>
+            <div className="mt-1 font-semibold">Various SMEs</div>
+            <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
+              <li><span className="font-medium">Problem:</span> No funnel tracking.</li>
+              <li><span className="font-medium">Move:</span> GA4 events (call_click, whatsapp_click, book_consult).</li>
+              <li><span className="font-medium">Win:</span> Measurable leads → better decisions.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="mx-auto max-w-6xl px-4 py-16">
         <SectionHeader
@@ -137,9 +182,7 @@ export default async function HomePage() {
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-gray-200 p-5">
-            <p className="text-gray-700">
-              “Clear process, fast delivery, and our quote requests jumped.”
-            </p>
+            <p className="text-gray-700">“Clear process, fast delivery, and our quote requests jumped.”</p>
             <div className="mt-3 text-sm text-gray-500">Brittany — Infinity Lawns</div>
           </div>
           <div className="rounded-2xl border border-gray-200 p-5">
@@ -149,9 +192,7 @@ export default async function HomePage() {
             <div className="mt-3 text-sm text-gray-500">Robin — Senior-Care Owner</div>
           </div>
           <div className="rounded-2xl border border-gray-200 p-5">
-            <p className="text-gray-700">
-              “Loved the attention to performance and accessibility.”
-            </p>
+            <p className="text-gray-700">“Loved the attention to performance and accessibility.”</p>
             <div className="mt-3 text-sm text-gray-500">Bannerman — E-commerce</div>
           </div>
         </div>
@@ -162,15 +203,16 @@ export default async function HomePage() {
         <div className="rounded-2xl border border-gray-200 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s Work</div>
-            <h3 className="mt-1 text-2xl font-bold tracking-tight">
-              Do you have a project in mind?
-            </h3>
+            <h3 className="mt-1 text-2xl font-bold tracking-tight">Do you have a project in mind?</h3>
             <p className="mt-2 text-gray-600">
               I build fast, accessible websites with measurable outcomes.
             </p>
           </div>
           <div className="shrink-0">
-            <Link href="/contact" className="inline-flex items-center justify-center px-5 py-3 rounded-xl2 bg-brand text-white hover:opacity-90">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-5 py-3 rounded-xl2 bg-brand text-white hover:opacity-90"
+            >
               Start a project
             </Link>
           </div>

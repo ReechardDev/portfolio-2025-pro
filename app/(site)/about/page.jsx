@@ -1,48 +1,47 @@
 import SectionHeader from "@/components/SectionHeader";
 
-export const metadata = {
-  title: "About — Inemesit David",
-  description:
-    "Accra-based web designer/developer collaborating with U.S. teams (Denver). Product-minded, conversion-focused.",
-};
-
 export default function AboutPage() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
-      <SectionHeader eyebrow="Who I am" title="About" text="" />
+    <div className="mx-auto max-w-6xl px-4 py-12">
+      <SectionHeader
+        eyebrow="About"
+        title="Website builder for service businesses"
+        text=""
+      />
+      <div className="prose max-w-none">
+        <p className="text-gray-700">
+          I help service businesses—landscaping, salons, senior care, trades, and local shops—get
+          websites that actually drive calls, WhatsApp chats, and bookings. My focus is simple:
+          clear structure, trustworthy design, fast performance, and measurable results.
+        </p>
 
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-gray-200 p-6 bg-white">
-          <p className="text-gray-700">
-            I’m a web designer/developer and digital marketer who builds clean, conversion-ready
-            websites with Next.js and Tailwind. I care about simple UX, clear copy, and measurable
-            results. I’ve rebuilt service business sites (senior care, landscaping, Bread Store,
-            Affiliate Marketing link site), created reusable design systems in Canva, and set up GA4
-            tracking to see what actually moves the numbers. My process is: audit → structure the content
-            → design components → wire analytics → ship and iterate.
-          </p>
-          <p className="mt-4 text-gray-700">
-            I’m based in Accra and collaborate smoothly with U.S. teams (Denver). If you need a fast,
-            focused site revamp or an MVP you can launch this week, let’s ship it.
-          </p>
-        </div>
-
-        <div className="rounded-2xl border border-gray-200 p-6 bg-white">
-          <h3 className="font-semibold">Hard Skills</h3>
-          <p className="mt-2 text-sm text-gray-700">
-            HTML · CSS · JavaScript · React · Next.js · TailwindCSS · shadcn/ui · Lucide Icons ·
-            Vercel · Netlify · Git · GitHub · ESLint/Prettier · GA4 · GTM (basic) · On-page SEO ·
-            Performance basics · Canva · Wireframes · Copywriting · Content Strategy · Excel (cert) ·
-            A/B testing basics
-          </p>
-
-          <h3 className="mt-6 font-semibold">Soft Skills</h3>
-          <p className="mt-2 text-sm text-gray-700">
-            Client communication · Product thinking · Grit &amp; ownership · Documentation ·
-            Collaboration · Learning agility
-          </p>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="rounded-2xl border border-gray-200 p-5">
+            <div className="font-semibold">Speed & Clarity</div>
+            <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
+              <li>Fast loads, solid Core Web Vitals</li>
+              <li>Clean copy hierarchy</li>
+              <li>Mobile-first layouts</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-gray-200 p-5">
+            <div className="font-semibold">Lead Ready</div>
+            <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
+              <li>Sticky CTAs & forms</li>
+              <li>WhatsApp & call click tracking</li>
+              <li>SEO basics + OG polish</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-gray-200 p-5">
+            <div className="font-semibold">Easy to Maintain</div>
+            <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
+              <li>Next.js + Tailwind stack</li>
+              <li>Vercel hosting & previews</li>
+              <li>Simple content updates</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

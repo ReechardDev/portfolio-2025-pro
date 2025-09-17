@@ -1,72 +1,96 @@
-import SectionHeader from "@/components/SectionHeader";
+// app/(site)/services/page.jsx
+import ButtonCTA from "../../../components/ui/ButtonCTA";
+
+const PLANS = [
+  {
+    name: "Starter",
+    price: "From $499",
+    blurb: "One-page site or landing page to get you live fast.",
+    points: [
+      "1 page • responsive • fast load",
+      "Basic SEO + sitemap.xml",
+      "Contact form wired (email)",
+    ],
+  },
+  {
+    name: "Standard",
+    price: "From $1,200",
+    badge: "Most Popular",
+    blurb: "Multi-page brochure site with strong conversion paths.",
+    points: [
+      "Up to 6 pages • CMS ready",
+      "GA4 events (call, WhatsApp, contact)",
+      "On-page SEO + OG images",
+    ],
+  },
+  {
+    name: "Pro",
+    price: "Custom",
+    blurb: "Advanced site or mini-e-commerce with integrations.",
+    points: [
+      "Unlimited pages • blog/resources",
+      "Performance + accessibility pass",
+      "Integrations (Calendly, GA4, more)",
+    ],
+  },
+];
 
 export default function ServicesPage() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
-      <SectionHeader eyebrow="WHAT I DELIVER" title="Services" text="" />
+    <main className="mx-auto max-w-6xl px-4 py-16">
+      {/* Simple header (avoids SectionHeader import issues) */}
+      <header className="max-w-2xl">
+        <h1 className="text-3xl/tight font-semibold text-slate-900">Services & Pricing</h1>
+        <p className="mt-2 text-slate-600">
+          Clear packages with room to customize—built fast, measured, and improved.
+        </p>
+      </header>
 
-      <div className="mt-8 grid gap-6 md:grid-cols-2">
-        {/* Website Revamp */}
-        <div className="rounded-2xl border border-gray-200 p-5 bg-white">
-          <h3 className="text-lg font-semibold">Website Revamp (Service Businesses)</h3>
-          <p className="mt-2 text-gray-700">
-            Audit → IA → UI kit → 5-page build (Home/Services/Pricing/About/Contact) → GA4 → deploy
-          </p>
-          <div className="mt-3 text-sm text-gray-600">
-            <span className="font-medium">Timeline:</span> 2–4 weeks
+      {/* Plan grid */}
+      <section className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {PLANS.map((p) => (
+          <div key={p.name} className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            {p.badge && (
+              <div className="absolute -top-3 right-4 rounded-full bg-slate-900 px-3 py-1 text-xs text-white">
+                {p.badge}
+              </div>
+            )}
+            <div className="text-lg font-medium text-slate-900">{p.name}</div>
+            <div className="mt-1 text-sm text-slate-600">{p.blurb}</div>
+            <div className="mt-4 text-2xl font-semibold text-slate-900">{p.price}</div>
+            <ul className="mt-4 space-y-2 text-sm text-slate-700">
+              {p.points.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-slate-300" />
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6">
+              <ButtonCTA href="/contact" className="w-full">Choose plan</ButtonCTA>
+            </div>
           </div>
-          <ul className="mt-3 text-sm text-gray-700 list-disc pl-5 space-y-1">
-            <li>UX audit &amp; sitemap</li>
-            <li>Component system in Tailwind</li>
-            <li>On-page SEO &amp; metadata</li>
-            <li>GA4 events and goals</li>
-            <li>Deploy to Vercel/Netlify</li>
-          </ul>
-        </div>
+        ))}
+      </section>
 
-        {/* New Site (MVP) */}
-        <div className="rounded-2xl border border-gray-200 p-5 bg-white">
-          <h3 className="text-lg font-semibold">New Site (MVP)</h3>
-          <p className="mt-2 text-gray-700">Brand starter, copy, 3–5 sections, forms, GA4</p>
-          <div className="mt-3 text-sm text-gray-600">
-            <span className="font-medium">Timeline:</span> 1–2 weeks
+      {/* FAQ teaser */}
+      <section className="mt-14">
+        <h2 className="text-xl font-semibold text-slate-900">Common questions</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-xl2 border border-slate-200 bg-white p-4">
+            <div className="font-medium">How long does a site take?</div>
+            <p className="mt-1 text-sm text-slate-600">
+              Starter: ~1 week. Standard: 2–3 weeks. Pro: depends on scope and integrations.
+            </p>
           </div>
-          <ul className="mt-3 text-sm text-gray-700 list-disc pl-5 space-y-1">
-            <li>Hero + offer</li>
-            <li>Services overview</li>
-            <li>Contact/booking</li>
-            <li>Analytics wiring</li>
-          </ul>
-        </div>
-
-        {/* Analytics Setup (GA4) */}
-        <div className="rounded-2xl border border-gray-200 p-5 bg-white">
-          <h3 className="text-lg font-semibold">Analytics Setup (GA4)</h3>
-          <p className="mt-2 text-gray-700">Events, conversions, UTM plan, simple dashboard</p>
-          <div className="mt-3 text-sm text-gray-600">
-            <span className="font-medium">Timeline:</span> 2–4 days
+          <div className="rounded-xl2 border border-slate-200 bg-white p-4">
+            <div className="font-medium">What’s needed to start?</div>
+            <p className="mt-1 text-sm text-slate-600">
+              Logo/brand, copy or rough notes, and example sites you like. I’ll guide the rest.
+            </p>
           </div>
-          <ul className="mt-3 text-sm text-gray-700 list-disc pl-5 space-y-1">
-            <li>Key event map</li>
-            <li>Conversions in GA4</li>
-            <li>Traffic tagging plan</li>
-          </ul>
         </div>
-
-        {/* Design Systems (Canva) */}
-        <div className="rounded-2xl border border-gray-200 p-5 bg-white">
-          <h3 className="text-lg font-semibold">Design Systems (Canva)</h3>
-          <p className="mt-2 text-gray-700">Reusable templates (posts, flyers, proposals)</p>
-          <div className="mt-3 text-sm text-gray-600">
-            <span className="font-medium">Timeline:</span> 3–5 days
-          </div>
-          <ul className="mt-3 text-sm text-gray-700 list-disc pl-5 space-y-1">
-            <li>Post/flyer set</li>
-            <li>Proposal template</li>
-            <li>Brand color/typography</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
