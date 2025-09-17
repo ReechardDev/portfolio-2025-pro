@@ -1,35 +1,39 @@
+// components/HeroMotion.jsx
 "use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import ButtonCTA from "./ui/ButtonCTA";
 
 export default function HeroMotion() {
   return (
-    <section className="mx-auto max-w-6xl px-4 pt-16 pb-12">
+    <section className="mx-auto max-w-6xl px-4 pt-10 pb-12">
       <motion.div
-        className="max-w-3xl"
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+        className="max-w-3xl"
       >
-       {/* Hero copy (semantic + visible) */}
-<h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-  I design &amp; build small <span className="text-brand">business-website</span> in Next.js &amp; Tailwind.
-</h1>
-<p className="mt-4 max-w-2xl text-lg text-gray-700">
-  I turn ideas into polished products with clear UX, strong on-page SEO, and measurable outcomes with modern analytics.
-  Based in Accra, collaborating with U.S. teams (Denver).
-</p>
-        <div className="mt-6 flex gap-3">
-          <Link href="/work" className="rounded-xl2 bg-brand text-white px-5 py-3">
-            See my work
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-xl2 border border-gray-200 px-5 py-3 hover:bg-gray-50"
-          >
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">
+          Product-minded web developer for local businesses
+        </h1>
+        <p className="mt-3 text-slate-600">
+          Clean, conversion-ready websites with GA4 events for calls, WhatsApp and forms — built fast, measured, and improved.
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          {/* Primary CTA — unified navy → sky hover */}
+          <ButtonCTA as={Link} href="/contact">
             Start a project
-          </Link>
+          </ButtonCTA>
+
+          {/* Secondary outline link — same hover feel as Work cards */}
+          <a
+            href="/work"
+            className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+          >
+            See recent work <span className="transition translate-x-0 group-hover:translate-x-0.5">→</span>
+          </a>
         </div>
       </motion.div>
     </section>

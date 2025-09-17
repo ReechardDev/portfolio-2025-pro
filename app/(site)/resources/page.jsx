@@ -1,5 +1,4 @@
 // app/(site)/resources/page.jsx
-import Link from "next/link";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
 const RESOURCES = [
@@ -7,18 +6,21 @@ const RESOURCES = [
     title: "Free Website Audit Checklist (PDF)",
     href: "/downloads/audit-checklist.pdf",
     desc: "25 quick checks for speed, SEO, UX, and conversion.",
+    meta: "PDF · 180 KB · Updated: Sep 2025",
     kind: "download",
   },
   {
     title: "GA4 Starter Events (CSV)",
     href: "/downloads/ga4-starter-events.csv",
-    desc: "Base events for call/WhatsApp/contact form tracking.",
+    desc: "Base events for call/WhatsApp/contact tracking.",
+    meta: "CSV · 2 KB · Updated: Sep 2025",
     kind: "download",
   },
   {
     title: "Canva Portfolio Slide (Template)",
-    href: "https://example.com/canva-portfolio", // replace with your real link
+    href: "https://www.canva.com/", // <-- swap to your actual template
     desc: "Editable slide to present your work fast.",
+    meta: "External · Updated: Sep 2025",
     kind: "external",
   },
 ];
@@ -27,18 +29,14 @@ export default function ResourcesPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-16">
       <h1 className="text-3xl/tight font-semibold text-slate-900">Resources</h1>
-      <p className="mt-2 text-slate-600">
-        Free tools and templates I use with clients.
-      </p>
+      <p className="mt-2 text-slate-600">Free tools and templates I use with clients.</p>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         {RESOURCES.map((r) => (
-          <div
-            key={r.title}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-          >
+          <div key={r.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="text-lg font-medium">{r.title}</div>
             <p className="mt-2 text-sm text-slate-600">{r.desc}</p>
+            <div className="mt-1 text-xs text-slate-500">{r.meta}</div>
             <div className="mt-4">
               {r.kind === "download" ? (
                 <ButtonCTA href={r.href}>Download</ButtonCTA>
@@ -55,11 +53,6 @@ export default function ResourcesPage() {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* keep this plain text—no placeholders */}
-      <div className="mt-8 text-xs text-gray-500">
-        Based on my standard discovery process.
       </div>
     </main>
   );

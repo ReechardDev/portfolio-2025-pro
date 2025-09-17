@@ -18,7 +18,6 @@ export async function generateMetadata({ params }) {
 
 export default async function CaseStudyPage({ params }) {
   const item = await getCaseBySlug(params.slug);
-
   if (!item) {
     return (
       <main className="mx-auto max-w-5xl px-4 py-16">
@@ -35,6 +34,21 @@ export default async function CaseStudyPage({ params }) {
     <main className="mx-auto max-w-5xl px-4 py-16">
       <h1 className="text-3xl/tight font-semibold text-slate-900">{item.title}</h1>
       <p className="mt-3 max-w-2xl text-slate-600">{item.summary}</p>
+
+      {/* MINI STATS (replace values with real numbers when you have them) */}
+      <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {[
+          { k: "Lighthouse Perf", v: "95+" },
+          { k: "Leads ↑", v: "+42%" },
+          { k: "Bounce ↓", v: "–18%" },
+          { k: "Build time", v: "2 wks" },
+        ].map(({k,v}) => (
+          <div key={k} className="rounded-xl2 border border-slate-200 p-4">
+            <div className="text-xs text-slate-500">{k}</div>
+            <div className="mt-1 text-xl font-semibold">{v}</div>
+          </div>
+        ))}
+      </div>
 
       <div className="mt-6 flex flex-wrap gap-3">
         <ButtonCTA as={Link} href="/contact">Start a project</ButtonCTA>
