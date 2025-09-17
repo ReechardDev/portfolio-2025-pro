@@ -14,6 +14,23 @@ const SKILLS = [
   "GitHub","Copywriting","GA4","GTM (basic)","On-page SEO","Vercel","Canva","Wireframes","Content Strategy",
 ];
 
+// Helper: choose a cover image by slug/title if `p.cover` is missing
+function coverFor(p = {}) {
+  const s = (p.slug || "").toLowerCase();
+  const t = (p.title || "").toLowerCase();
+
+  if (s.includes("robin") || t.includes("robin")) {
+    return "/work/robin-senior-care.jpg";
+  }
+  if (s.includes("infinity") || t.includes("infinity")) {
+    return "/work/infinitylawns.jpg";
+  }
+  if (s.includes("things") || s.includes("buy") || t.includes("things")) {
+    return "/work/things-you-should-buy.jpg";
+  }
+  return "/og/default.png"; // fallback
+}
+
 export default async function HomePage() {
   const work = await getAllCaseStudies();
   const featured = work.slice(0, 3);
@@ -95,7 +112,7 @@ export default async function HomePage() {
               className="group rounded-2xl border border-gray-200 overflow-hidden hover:shadow-md hover:border-brand-cta-hover transition"
             >
               <img
-                src={p.cover || "/og/default.png"}
+                src={p.cover || coverFor(p)}
                 alt={p.title || "Project cover"}
                 className="w-full aspect-video object-cover transition group-hover:scale-[1.02]"
                 loading="lazy"

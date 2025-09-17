@@ -7,8 +7,8 @@ export default function SkillPills({ skills = [] }) {
       {skills.map((s) => (
         <li
           key={s}
-          className="rounded-full border border-sky-200 bg-white px-3 py-1.5 text-xs text-slate-700
-                     transition hover:bg-sky-50 hover:border-brand-cta-hover hover:text-slate-900"
+          className="rounded-full border border-brand-cta-hover bg-sky-50 px-3 py-1.5
+                     text-xs text-slate-900 transition hover:bg-sky-100"
         >
           {s}
         </li>
