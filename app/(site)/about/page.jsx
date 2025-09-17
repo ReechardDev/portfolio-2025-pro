@@ -2,6 +2,13 @@ import SectionHeader from "@/components/SectionHeader";
 
 export default function AboutPage() {
   return (
+
+export const metadata = {
+  title: "Inemesit David — Portfolio",
+  description: "Conversion-focused websites in Next.js & Tailwind. Clear UX, on-page SEO, and measurable analytics.",
+};
+
+
     <section className="mx-auto max-w-6xl px-4 py-12">
       <SectionHeader eyebrow="Who I am" title="About" text="" />
 

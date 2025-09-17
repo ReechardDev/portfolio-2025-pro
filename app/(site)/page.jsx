@@ -14,21 +14,17 @@ const SKILLS = [
   "React",
   "Next.js",
   "TailwindCSS",
-  "shadcn/ui",
   "Lucide",
-  "Vercel",
-  "Git",
+  "Google Domain",
   "GitHub",
-  "ESLint/Prettier",
+  "Copywriting",
   "GA4",
   "GTM (basic)",
   "On-page SEO",
-  "Performance basics",
+  "Vercel",
   "Canva",
   "Wireframes",
-  "Copywriting",
   "Content Strategy",
-  "A/B testing basics",
 ];
 
 export default async function HomePage() {
@@ -44,7 +40,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <SectionHeader
           eyebrow="SKILLS"
-          title="Hard skills I use to ship"
+          title="Skills I use in building"
           text=""
         />
         <SkillPills skills={SKILLS} />
@@ -54,7 +50,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <SectionHeader
           eyebrow="Capabilities"
-          title="What I do quickly and well"
+          title="What I do well"
           text="Product-minded web development with measurable impact."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -83,7 +79,7 @@ export default async function HomePage() {
           <div className="rounded-2xl border border-gray-200 p-5">
             <div className="font-semibold">Measure & Grow</div>
             <p className="mt-2 text-gray-600 text-sm">
-              Analytics events and funnels to prove what works and iterate with confidence.
+              Google analytics, events and funnels to prove what works and iterate with confidence.
             </p>
             <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
               <li>GA4 events</li>
@@ -97,9 +93,9 @@ export default async function HomePage() {
       {/* Selected Work */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <SectionHeader
-          eyebrow="Selected Work"
+          eyebrow="Work"
           title="Recent case studies"
-          text="A few projects shipped with care for UX, performance, and business impact."
+          text="A few projects i've built for local business owners."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {featured.map((p) => (
@@ -137,7 +133,7 @@ export default async function HomePage() {
         <SectionHeader
           eyebrow="Social Proof"
           title="Clients say nice things"
-          text="Swap these with real names, photos, and companies."
+          text="Some testimonials from real clients."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-gray-200 p-5">
@@ -156,7 +152,7 @@ export default async function HomePage() {
             <p className="text-gray-700">
               “Loved the attention to performance and accessibility.”
             </p>
-            <div className="mt-3 text-sm text-gray-500">Client — E-commerce</div>
+            <div className="mt-3 text-sm text-gray-500">Bannerman — E-commerce</div>
           </div>
         </div>
       </section>
@@ -165,12 +161,12 @@ export default async function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <div className="rounded-2xl border border-gray-200 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s build</div>
+            <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s Work</div>
             <h3 className="mt-1 text-2xl font-bold tracking-tight">
-              Ready for a clean, conversion-focused site?
+              Do you have a project in mind?
             </h3>
             <p className="mt-2 text-gray-600">
-              I ship fast, accessible websites with measurable outcomes.
+              I build fast, accessible websites with measurable outcomes.
             </p>
           </div>
           <div className="shrink-0">

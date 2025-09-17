@@ -35,7 +35,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
       <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
         <Link href="/" className="font-bold tracking-tight text-lg">
-          Inemesit<span className="text-brand">.</span>
+          Inemesit Richard. David<span className="text-brand">.</span>
         </Link>
 
         {/* Desktop nav */}
