@@ -1,10 +1,12 @@
 import "./../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Inemesit David — Product-minded Web Developer",
-  description: "Conversion-focused websites with Next.js, Tailwind, and a product mindset. Fast, accessible, measurable."
+  description:
+    "Conversion-focused websites with Next.js, Tailwind, and a product mindset. Fast, accessible, measurable.",
 };
 
 export default function RootLayout({ children }) {
@@ -14,6 +16,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
