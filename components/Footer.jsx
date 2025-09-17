@@ -11,13 +11,13 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-gray-100">
+    <footer className="mt-24 border-top border-gray-100">
       {/* Top band: message + CTA */}
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-2 items-center">
         <div>
           <div className="font-semibold">Let’s build something users love.</div>
           <div className="text-sm text-gray-600 mt-1">
-            Next.js · Tailwind · Product thinking · A11y · SEO
+            Next.js · Google Analytics · Product-Thinking · SEO
           </div>
         </div>
         <div className="md:text-right">
