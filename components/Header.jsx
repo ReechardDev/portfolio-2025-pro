@@ -12,7 +12,7 @@ const NavLink = ({ href, children }) => {
     <Link
       href={href}
       aria-current={active ? "page" : undefined}
-      className={`px-3 py-2 rounded-xl2 transition hover:bg-gray-100 ${
+      className={`px-3 py-2 rounded-xl2 transition hover:bg-sky-100 hover:text-brand-cta-hover ${
         active ? "text-brand font-semibold" : "text-gray-700"
       }`}
     >
@@ -34,7 +34,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-sky-50/80 backdrop-blur border-b border-sky-100">
       <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
         <Link href="/" className="font-bold tracking-tight text-lg">
           Inemesit Richard. David<span className="text-brand">.</span>
@@ -57,7 +57,7 @@ export default function Header() {
         {/* Mobile menu button */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden p-2 rounded-xl2 hover:bg-gray-100"
+          className="md:hidden p-2 rounded-xl2 hover:bg-sky-100"
           aria-label="Toggle Menu"
           aria-expanded={open}
         >
@@ -67,7 +67,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-gray-100">
+        <div className="md:hidden border-t border-sky-100">
           <div className="mx-auto max-w-6xl px-4 py-2 flex flex-col">
             {NAV_LINKS.map((l) => (
               <NavLink key={l.href} href={l.href}>
