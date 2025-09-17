@@ -1,5 +1,7 @@
+// app/(site)/pricing/page.jsx
 import Link from "next/link";
-import SectionHeader from "@/components/SectionHeader";
+import SectionHeader from "../../../components/SectionHeader";
+import ButtonCTA from "../../../components/ui/ButtonCTA";
 
 const PLANS = [
   {
@@ -48,45 +50,46 @@ const PLANS = [
 
 export default function PricingPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
+    <main className="mx-auto max-w-6xl px-4 py-12">
       <SectionHeader
         eyebrow="Pricing"
         title="Website packages for local businesses"
         text="Simple, transparent tiers. Hosting/domain paid separately if needed."
       />
 
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
+      <section className="mt-8 grid gap-6 md:grid-cols-3">
         {PLANS.map((p) => (
-          <div key={p.name} className="rounded-2xl border border-gray-200 p-6 relative">
+          <div
+            key={p.name}
+            className="relative rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+          >
             {p.mostPopular && (
               <div className="absolute -top-3 right-4 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-semibold">
                 Most Popular
               </div>
             )}
-            <div className="font-semibold">{p.name}</div>
-            <div className="mt-1 text-2xl font-bold">{p.price}</div>
+
+            <div className="font-semibold text-slate-900">{p.name}</div>
+            <div className="mt-1 text-2xl font-bold text-slate-900">{p.price}</div>
             <div className="mt-1 text-sm text-gray-600">{p.audience}</div>
 
-            <ul className="mt-4 text-sm text-gray-700 list-disc pl-5 space-y-1">
+            <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-slate-700">
               {p.features.map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
 
             <div className="mt-6">
-              <Link
-                href={p.cta.href}
-                className="inline-flex items-center justify-center rounded-xl2 bg-brand text-white px-5 py-3 hover:opacity-90"
-              >
+              <ButtonCTA as={Link} href={p.cta.href} className="w-full">
                 {p.cta.label}
-              </Link>
+              </ButtonCTA>
             </div>
           </div>
         ))}
-      </div>
+      </section>
 
-      <div className="mt-10 rounded-2xl border border-gray-200 p-6">
-        <div className="font-semibold">Hosting & Domains (Ghana)</div>
+      <section className="mt-10 rounded-2xl border border-gray-200 bg-white p-6">
+        <div className="font-semibold text-slate-900">Hosting & Domains (Ghana)</div>
         <p className="mt-2 text-sm text-gray-600">
           Typical yearly costs: small sites ₵150–₵500 (Vercel free plan + .com), bigger listing sites ₵1,000–₵3,000
           (cloud/VPS). See the full guide for details.
@@ -94,16 +97,16 @@ export default function PricingPage() {
         <div className="mt-4">
           <a
             href="/docs/website-packages-hosting-guide.pdf"
-            className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 px-5 py-3 hover:bg-gray-50"
+            className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 px-5 py-3 transition hover:bg-gray-50"
             download
           >
-            Download Packages & Hosting Guide
+            Download Packages &amp; Hosting Guide
           </a>
         </div>
         <div className="mt-3 text-xs text-gray-500">
-          Details based on my Ghana-friendly pricing & hosting guide:contentReference[oaicite:2]{index=2}.
+          Details based on my Ghana-friendly pricing &amp; hosting guide.
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
