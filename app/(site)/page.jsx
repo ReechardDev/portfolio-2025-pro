@@ -31,6 +31,25 @@ function coverFor(p = {}) {
   return "/og/default.png"; // fallback
 }
 
+// Same testimonials as the /testimonials page
+const TESTIMONIALS = [
+  {
+    quote:
+      "Clean build and fast turnaround. Calls and WhatsApp messages increased after launch.",
+    author: "Brittany & Chris, Infinity Lawns & Beyond",
+  },
+  {
+    quote:
+      "Clear care plans and easier contact paths. Families find what they need faster.",
+    author: "Robin M., Senior Care Owner",
+  },
+  {
+    quote:
+      "Simple structure and better CTAs. Our affiliate site is easier to navigate now.",
+    author: "Team TYSB",
+  },
+];
+
 export default async function HomePage() {
   const work = await getAllCaseStudies();
   const featured = work.slice(0, 3);
@@ -116,6 +135,7 @@ export default async function HomePage() {
                 alt={p.title || "Project cover"}
                 className="w-full aspect-video object-cover transition group-hover:scale-[1.02]"
                 loading="lazy"
+                decoding="async"
               />
               <div className="p-4">
                 <div className="text-sm text-gray-500">
@@ -135,6 +155,33 @@ export default async function HomePage() {
             className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 px-5 py-3 hover:border-brand-cta-hover hover:text-brand-cta-hover transition"
           >
             Browse all work
+          </Link>
+        </div>
+      </section>
+
+      {/* Testimonials (same style as /testimonials page) */}
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What clients say</h2>
+        <p className="mt-2 text-slate-600">A few words from recent projects.</p>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {TESTIMONIALS.map((t, i) => (
+            <figure
+              key={i}
+              className="rounded-2xl border border-gray-200 p-5 hover-card bg-white"
+            >
+              <blockquote className="text-slate-800">“{t.quote}”</blockquote>
+              <figcaption className="mt-3 text-sm text-slate-500">— {t.author}</figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/testimonials"
+            className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 px-5 py-3 hover:border-brand-cta-hover hover:text-brand-cta-hover transition"
+          >
+            Read more
           </Link>
         </div>
       </section>
