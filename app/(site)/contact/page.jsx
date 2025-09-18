@@ -2,6 +2,12 @@
 import SectionHeader from "../../../components/SectionHeader";
 import { SITE } from "../../../lib/site";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
+import ContactForm from "../../../components/ContactForm";
+
+export const metadata = {
+  title: "Contact",
+  description: "Tell me about your project. I reply within 24–48 hours.",
+};
 
 export default function ContactPage() {
   const EMAIL = SITE?.email || "inemesitdavid90@gmail.com";
@@ -31,13 +37,20 @@ export default function ContactPage() {
         <div className="flex flex-wrap gap-3">
           <a
             href="/docs/client-intake-form.pdf"
-            className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 bg-white px-5 py-3 text-slate-900 transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
             download
+            className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 bg-white px-5 py-3 text-slate-900 transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
           >
             Download Intake Form
           </a>
 
-          <ButtonCTA as="a" href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+          <ButtonCTA
+            as="a"
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-ga="contact_click"
+            data-ga-label="whatsapp_cta"
+          >
             WhatsApp Me
           </ButtonCTA>
 
@@ -46,6 +59,8 @@ export default function ContactPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+            data-ga="cta_click"
+            data-ga-label="book_15min"
           >
             Book a 15-min call →
           </a>
@@ -56,59 +71,7 @@ export default function ContactPage() {
 
       {/* Email form + Social links */}
       <section className="mt-8 grid gap-6 md:grid-cols-2">
-        <form
-          className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 shadow-sm hover-card"
-          method="POST"
-          action={`mailto:${EMAIL}`}
-          encType="text/plain"
-        >
-          <div className="text-lg font-medium text-slate-900">Email me directly</div>
-          <p className="mt-1 text-sm text-slate-600">
-            This form opens your email app with the message prefilled.
-          </p>
-
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            <div>
-              <label className="block text-sm text-slate-700">Name</label>
-              <input
-                type="text"
-                name="Name"
-                autoComplete="name"
-                className="mt-1 w-full rounded-xl2 border border-gray-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
-                placeholder="Your name"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm text-slate-700">Email</label>
-              <input
-                type="email"
-                name="Email"
-                autoComplete="email"
-                className="mt-1 w-full rounded-xl2 border border-gray-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <label className="block text-sm text-slate-700">Message</label>
-            <textarea
-              name="Message"
-              rows={5}
-              className="mt-1 w-full rounded-xl2 border border-gray-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
-              placeholder="Tell me a bit about your project…"
-              required
-            />
-          </div>
-
-          <div className="mt-4">
-            <ButtonCTA as="button" type="submit">
-              Send
-            </ButtonCTA>
-          </div>
-        </form>
+        <ContactForm />
 
         <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 shadow-sm hover-card">
           <div className="text-lg font-medium text-slate-900">Other ways</div>
@@ -150,6 +113,8 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+              data-ga="outbound_click"
+              data-ga-label="linkedin"
             >
               LinkedIn
             </a>
@@ -159,6 +124,8 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               aria-label="GitHub"
               className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+              data-ga="outbound_click"
+              data-ga-label="github"
             >
               GitHub
             </a>
@@ -168,6 +135,8 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
               className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+              data-ga="outbound_click"
+              data-ga-label="x"
             >
               X
             </a>
