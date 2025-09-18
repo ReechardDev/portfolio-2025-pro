@@ -4,7 +4,6 @@ import { SITE } from "../../../lib/site";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
 export default function ContactPage() {
-  // Fallbacks so nothing breaks if a field is missing in SITE
   const EMAIL = SITE?.email || "inemesitdavid90@gmail.com";
   const PHONE_DISPLAY = SITE?.phoneDisplay || "+233 05956-33424";
   const WHATSAPP = SITE?.whatsappLink || "https://wa.me/233000000000";
@@ -20,8 +19,8 @@ export default function ContactPage() {
         text="Quickest way to get started: fill the intake form, then message me."
       />
 
-      {/* Pre-form CTA row */}
-      <div className="mt-6 rounded-2xl border border-gray-200 bg-white p-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      {/* Pre-form CTA row (now solid light blue) */}
+      <div className="mt-6 rounded-2xl border border-sky-200 bg-sky-50 p-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
           <div className="font-semibold text-slate-900">New client?</div>
           <p className="text-sm text-gray-600">
@@ -30,7 +29,6 @@ export default function ContactPage() {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          {/* Download (secondary, outline) */}
           <a
             href="/docs/client-intake-form.pdf"
             className="inline-flex items-center justify-center rounded-xl2 border border-gray-200 bg-white px-5 py-3 text-slate-900 transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
@@ -39,7 +37,6 @@ export default function ContactPage() {
             Download Intake Form
           </a>
 
-          {/* WhatsApp (primary, navy → sky hover) */}
           <ButtonCTA
             as="a"
             href={WHATSAPP}
@@ -49,7 +46,6 @@ export default function ContactPage() {
             WhatsApp Me
           </ButtonCTA>
 
-          {/* Optional booking link (secondary, outline) */}
           <a
             href={SITE?.bookingLink || "https://cal.com/yourname/intro"}
             target="_blank"
@@ -61,14 +57,12 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Response-time note */}
       <p className="mt-3 text-xs text-slate-500">I reply within 24–48 hours.</p>
 
-      {/* New: Email form + Social links (keeps your existing style; no layout restructure) */}
+      {/* Email form + Social links */}
       <section className="mt-8 grid gap-6 md:grid-cols-2">
-        {/* Email form card */}
         <form
-          className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover-card"
+          className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card"
           method="POST"
           action={`mailto:${EMAIL}`}
           encType="text/plain"
@@ -121,8 +115,7 @@ export default function ContactPage() {
           </div>
         </form>
 
-        {/* Social links card */}
-        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover-card">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card">
           <div className="text-lg font-medium text-slate-900">Other ways</div>
           <dl className="mt-3 space-y-2 text-sm">
             <div className="flex gap-2">

@@ -2,28 +2,9 @@
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
 const PLANS = [
-  {
-    name: "Starter",
-    price: "From ₵1,000",
-    includes: "1–3 pages, mobile-ready, basic SEO",
-    blurb: "One-page or small site to get you live fast.",
-    points: ["Responsive build", "Basic SEO + sitemap.xml", "Contact form / WhatsApp"],
-  },
-  {
-    name: "Standard",
-    price: "From ₵3,000",
-    includes: "Up to 6 pages, GA4 events, CMS-ready",
-    blurb: "Brochure site with strong conversion paths.",
-    points: ["Up to 6 pages", "GA4 call/WhatsApp/form events", "On-page SEO + OG images"],
-    badge: "Most Popular",
-  },
-  {
-    name: "Pro",
-    price: "Custom (₵)",
-    includes: "Listings, admin, integrations",
-    blurb: "Advanced site or mini-commerce with integrations.",
-    points: ["Unlimited pages", "Performance + accessibility pass", "Integrations (Calendly, GA4, more)"],
-  },
+  { name: "Starter", price: "From ₵1,000", includes: "1–3 pages, mobile-ready, basic SEO", blurb: "One-page or small site to get you live fast.", points: ["Responsive build", "Basic SEO + sitemap.xml", "Contact form / WhatsApp"] },
+  { name: "Standard", price: "From ₵3,000", includes: "Up to 6 pages, GA4 events, CMS-ready", blurb: "Brochure site with strong conversion paths.", points: ["Up to 6 pages", "GA4 call/WhatsApp/form events", "On-page SEO + OG images"], badge: "Most Popular" },
+  { name: "Pro", price: "Custom (₵)", includes: "Listings, admin, integrations", blurb: "Advanced site or mini-commerce with integrations.", points: ["Unlimited pages", "Performance + accessibility pass", "Integrations (Calendly, GA4, more)"] },
 ];
 
 export default function ServicesPage() {
@@ -38,7 +19,7 @@ export default function ServicesPage() {
         {PLANS.map((p) => (
           <div
             key={p.name}
-            className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover-card"
+            className="relative rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card"
           >
             {p.badge && (
               <div className="absolute -top-3 right-4 rounded-full bg-slate-900 px-3 py-1 text-xs text-white">

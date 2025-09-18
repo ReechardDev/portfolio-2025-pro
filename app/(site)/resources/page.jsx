@@ -2,27 +2,9 @@
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
 const RESOURCES = [
-  {
-    title: "Free Website Audit Checklist (PDF)",
-    href: "/downloads/audit-checklist.pdf",
-    desc: "25 quick checks for speed, SEO, UX, and conversion.",
-    meta: "PDF · 180 KB · Updated: Sep 2025",
-    kind: "download",
-  },
-  {
-    title: "GA4 Starter Events (CSV)",
-    href: "/downloads/ga4-starter-events.csv",
-    desc: "Base events for call/WhatsApp/contact tracking.",
-    meta: "CSV · 2 KB · Updated: Sep 2025",
-    kind: "download",
-  },
-  {
-    title: "Canva Portfolio Slide (Template)",
-    href: "https://www.canva.com/", // <-- swap to your actual template
-    desc: "Editable slide to present your work fast.",
-    meta: "External · Updated: Sep 2025",
-    kind: "external",
-  },
+  { title: "Free Website Audit Checklist (PDF)", href: "/downloads/audit-checklist.pdf", desc: "25 quick checks for speed, SEO, UX, and conversion.", meta: "PDF · 180 KB · Updated: Sep 2025", kind: "download" },
+  { title: "GA4 Starter Events (CSV)", href: "/downloads/ga4-starter-events.csv", desc: "Base events for call/WhatsApp/contact tracking.", meta: "CSV · 2 KB · Updated: Sep 2025", kind: "download" },
+  { title: "Canva Portfolio Slide (Template)", href: "https://www.canva.com/", desc: "Editable slide to present your work fast.", meta: "External · Updated: Sep 2025", kind: "external" },
 ];
 
 export default function ResourcesPage() {
@@ -35,7 +17,7 @@ export default function ResourcesPage() {
         {RESOURCES.map((r) => (
           <div
             key={r.title}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover-card"
+            className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card"
           >
             <div className="text-lg font-medium">{r.title}</div>
             <p className="mt-2 text-sm text-slate-600">{r.desc}</p>

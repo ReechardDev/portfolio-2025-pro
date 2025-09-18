@@ -20,7 +20,10 @@ export default function TestimonialsPage() {
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
         {TESTIMONIALS.map((t, i) => (
-          <figure key={i} className="rounded-2xl border border-gray-200 p-5 hover-card bg-white">
+          <figure
+            key={i}
+            className="rounded-2xl border border-sky-200 bg-sky-50 p-5 hover-card"
+          >
             <blockquote className="text-slate-800">“{t.quote}”</blockquote>
             <figcaption className="mt-3 text-sm text-slate-500">— {t.author}</figcaption>
           </figure>

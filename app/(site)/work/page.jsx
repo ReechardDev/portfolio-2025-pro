@@ -17,7 +17,7 @@ export default async function WorkPage() {
         {work.map((w) => (
           <article
             key={w.slug}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover-card"
+            className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card"
           >
             <div className="text-lg font-semibold text-slate-900">{w.title}</div>
             <p className="mt-2 text-sm text-slate-600">{w.summary}</p>

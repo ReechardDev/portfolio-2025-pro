@@ -14,7 +14,7 @@ export default function AboutPage() {
 
       {/* Row 1 */}
       <div className="mt-8 grid gap-6 md:grid-cols-2">
-        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover-card">
+        <section className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card">
           <h2 className="text-lg font-semibold text-slate-900">Background</h2>
           <p className="mt-2 text-sm text-slate-600">
             I design and build conversion-ready websites with clear structure, accessible UI,
@@ -27,7 +27,7 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover-card">
+        <section className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card">
           <h2 className="text-lg font-semibold text-slate-900">Approach</h2>
           <p className="mt-2 text-sm text-slate-600">
             Ship small, measure impact, then iterate. I keep content clear, reduce friction to
@@ -43,7 +43,7 @@ export default function AboutPage() {
 
       {/* Row 2 */}
       <div className="mt-8 grid gap-6 md:grid-cols-3">
-        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover-card">
+        <section className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card">
           <h3 className="font-medium text-slate-900">Capabilities</h3>
           <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 space-y-1">
             <li>Design & UX structure</li>
@@ -52,7 +52,7 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover-card">
+        <section className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card">
           <h3 className="font-medium text-slate-900">Toolbox</h3>
           <ul className="mt-3 flex flex-wrap gap-2 text-sm text-slate-700">
             <li className="rounded-full border border-slate-200 px-2.5 py-1">Next.js</li>
@@ -63,7 +63,7 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover-card">
+        <section className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card">
           <h3 className="font-medium text-slate-900">What clients get</h3>
           <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 space-y-1">
             <li>Clear structure and copy</li>
