@@ -159,10 +159,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials (same style as /testimonials page) */}
+      {/* Testimonials (centered with SectionHeader, wrapped in a section) */}
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What clients say</h2>
-        <p className="mt-2 text-slate-600">A few words from recent projects.</p>
+        <SectionHeader
+          eyebrow="Testimonials"
+          title="What clients say"
+          text="A few words from recent projects."
+        />
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
