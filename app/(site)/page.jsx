@@ -1,8 +1,10 @@
 // app/(site)/page.jsx
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import SectionHeader from "../../components/SectionHeader";
 import { getAllCaseStudies } from "../../lib/caseStudies";
+import { TESTIMONIALS } from "../../lib/testimonials";
 import SkillPills from "../../components/SkillPills";
 import ButtonCTA from "../../components/ui/ButtonCTA";
 
@@ -19,36 +21,15 @@ function coverFor(p = {}) {
   const s = (p.slug || "").toLowerCase();
   const t = (p.title || "").toLowerCase();
 
-  if (s.includes("robin") || t.includes("robin")) {
-    return "/work/robin-senior-care.jpg";
-  }
-  if (s.includes("infinity") || t.includes("infinity")) {
-    return "/work/infinitylawns.jpg";
-  }
-  if (s.includes("things") || s.includes("buy") || t.includes("things")) {
-    return "/work/things-you-should-buy.jpg";
-  }
+  if (s.includes("robin") || t.includes("robin")) return "/work/robin-senior-care.jpg";
+  if (s.includes("infinity") || t.includes("infinity")) return "/work/infinitylawns.jpg";
+  if (s.includes("things") || s.includes("buy") || t.includes("things")) return "/work/things-you-should-buy.jpg";
   return "/og/default.png"; // fallback
 }
 
-// Same testimonials as the /testimonials page
-const TESTIMONIALS = [
-  {
-    quote:
-      "Clean build and fast turnaround. Calls and WhatsApp messages increased after launch.",
-    author: "Brittany & Chris, Infinity Lawns & Beyond",
-  },
-  {
-    quote:
-      "Clear care plans and easier contact paths. Families find what they need faster.",
-    author: "Robin M., Senior Care Owner",
-  },
-  {
-    quote:
-      "Simple structure and better CTAs. Our affiliate site is easier to navigate now.",
-    author: "Team TYSB",
-  },
-];
+// tiny blur placeholder
+const BLUR =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 export default async function HomePage() {
   const work = await getAllCaseStudies();
@@ -59,7 +40,7 @@ export default async function HomePage() {
       {/* Hero */}
       <HeroMotion />
 
-      {/* ONE-LINER PROMISE + 2 bullets (content-only, same layout) */}
+      {/* ONE-LINER PROMISE + 2 bullets */}
       <section className="mx-auto max-w-6xl px-4 pt-2">
         <p className="text-slate-600">
           I build conversion-ready sites for local businesses—measured and fast.
@@ -84,7 +65,7 @@ export default async function HomePage() {
           text="Product-minded web development with measurable impact."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 hover-card">
+          <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Design & UX</div>
             <p className="mt-2 text-gray-600 text-sm">
               Structure, copy hierarchy, and accessible components that guide users to action.
@@ -93,7 +74,7 @@ export default async function HomePage() {
               <li>IA & wireframes</li><li>Design systems</li><li>Content clarity</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 hover-card">
+          <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Build & Performance</div>
             <p className="mt-2 text-gray-600 text-sm">
               Next.js + Tailwind with an image strategy, routing, and best-in-class Web Vitals.
@@ -102,7 +83,7 @@ export default async function HomePage() {
               <li>LCP & CLS budgets</li><li>Responsive images</li><li>SSR/SSG routing</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 hover-card">
+          <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Measure & Grow</div>
             <p className="mt-2 text-gray-600 text-sm">
               Google analytics, events and funnels to prove what works and iterate with confidence.
@@ -114,7 +95,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Selected Work (each card opens live site if available) */}
+      {/* Selected Work */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <SectionHeader
           eyebrow="Work"
@@ -130,12 +111,15 @@ export default async function HomePage() {
               rel={p.liveUrl ? "noopener noreferrer" : undefined}
               className="group rounded-2xl border border-gray-200 overflow-hidden hover:shadow-md hover:border-brand-cta-hover transition"
             >
-              <img
+              <Image
                 src={p.cover || coverFor(p)}
                 alt={p.title || "Project cover"}
+                width={1280}
+                height={720}
+                placeholder="blur"
+                blurDataURL={BLUR}
+                sizes="(min-width: 768px) 33vw, 100vw"
                 className="w-full aspect-video object-cover transition group-hover:scale-[1.02]"
-                loading="lazy"
-                decoding="async"
               />
               <div className="p-4">
                 <div className="text-sm text-gray-500">
@@ -159,7 +143,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials (centered with SectionHeader, wrapped in a section) */}
+      {/* Testimonials */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <SectionHeader
           eyebrow="Testimonials"
@@ -171,7 +155,7 @@ export default async function HomePage() {
           {TESTIMONIALS.map((t, i) => (
             <figure
               key={i}
-              className="rounded-2xl border border-sky-200 bg-sky-50 p-5 hover-card"
+              className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-5 hover-card"
             >
               <blockquote className="text-slate-800">“{t.quote}”</blockquote>
               <figcaption className="mt-3 text-sm text-slate-500">— {t.author}</figcaption>

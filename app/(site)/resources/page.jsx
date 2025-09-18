@@ -17,7 +17,7 @@ export default function ResourcesPage() {
         {RESOURCES.map((r) => (
           <div
             key={r.title}
-            className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card"
+            className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 shadow-sm hover-card"
           >
             <div className="text-lg font-medium">{r.title}</div>
             <p className="mt-2 text-sm text-slate-600">{r.desc}</p>

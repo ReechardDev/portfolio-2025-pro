@@ -19,8 +19,8 @@ export default function ContactPage() {
         text="Quickest way to get started: fill the intake form, then message me."
       />
 
-      {/* Pre-form CTA row (now solid light blue) */}
-      <div className="mt-6 rounded-2xl border border-sky-200 bg-sky-50 p-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      {/* Pre-form CTA row (solid light blue + matching border) */}
+      <div className="mt-6 rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
           <div className="font-semibold text-slate-900">New client?</div>
           <p className="text-sm text-gray-600">
@@ -37,12 +37,7 @@ export default function ContactPage() {
             Download Intake Form
           </a>
 
-          <ButtonCTA
-            as="a"
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <ButtonCTA as="a" href={WHATSAPP} target="_blank" rel="noopener noreferrer">
             WhatsApp Me
           </ButtonCTA>
 
@@ -62,7 +57,7 @@ export default function ContactPage() {
       {/* Email form + Social links */}
       <section className="mt-8 grid gap-6 md:grid-cols-2">
         <form
-          className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card"
+          className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 shadow-sm hover-card"
           method="POST"
           action={`mailto:${EMAIL}`}
           encType="text/plain"
@@ -115,7 +110,7 @@ export default function ContactPage() {
           </div>
         </form>
 
-        <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card">
+        <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 shadow-sm hover-card">
           <div className="text-lg font-medium text-slate-900">Other ways</div>
           <dl className="mt-3 space-y-2 text-sm">
             <div className="flex gap-2">

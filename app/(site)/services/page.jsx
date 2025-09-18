@@ -19,7 +19,7 @@ export default function ServicesPage() {
         {PLANS.map((p) => (
           <div
             key={p.name}
-            className="relative rounded-2xl border border-sky-200 bg-sky-50 p-6 shadow-sm hover-card"
+            className="relative rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 shadow-sm hover-card"
           >
             {p.badge && (
               <div className="absolute -top-3 right-4 rounded-full bg-slate-900 px-3 py-1 text-xs text-white">
