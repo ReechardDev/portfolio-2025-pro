@@ -84,7 +84,7 @@ export default async function HomePage() {
           text="Product-minded web development with measurable impact."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-gray-200 p-5 hover-card">
+          <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Design & UX</div>
             <p className="mt-2 text-gray-600 text-sm">
               Structure, copy hierarchy, and accessible components that guide users to action.
@@ -93,7 +93,7 @@ export default async function HomePage() {
               <li>IA & wireframes</li><li>Design systems</li><li>Content clarity</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-gray-200 p-5 hover-card">
+          <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Build & Performance</div>
             <p className="mt-2 text-gray-600 text-sm">
               Next.js + Tailwind with an image strategy, routing, and best-in-class Web Vitals.
@@ -102,7 +102,7 @@ export default async function HomePage() {
               <li>LCP & CLS budgets</li><li>Responsive images</li><li>SSR/SSG routing</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-gray-200 p-5 hover-card">
+          <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Measure & Grow</div>
             <p className="mt-2 text-gray-600 text-sm">
               Google analytics, events and funnels to prove what works and iterate with confidence.
