@@ -1,13 +1,13 @@
-// app/(site)/page.jsx
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import SectionHeader from "../../components/SectionHeader";
 import { getAllCaseStudies } from "../../lib/caseStudies";
 import { TESTIMONIALS } from "../../lib/testimonials";
-import PitchTeaser from "../../components/PitchTeaser"; // relative import
+import PitchTeaser from "../../components/PitchTeaser"; // ← keep this
 import SkillPills from "../../components/SkillPills";
 import ButtonCTA from "../../components/ui/ButtonCTA";
+
 
 const HeroMotion = dynamic(() => import("../../components/HeroMotion"), { ssr: false });
 
