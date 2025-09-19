@@ -180,23 +180,23 @@ export default async function HomePage() {
       {/* Hairline divider to create a clean visual break */}
       <hr className="mx-auto max-w-6xl my-12 md:my-16 border-sky-100" />
 
-      {/* Final CTA band (add top padding for breathing room) */}
-      <section className="mx-auto max-w-6xl px-4 pt-10 md:pt-12 pb-20">
-        <div className="rounded-2xl border border-gray-200 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div>
-            <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s Work</div>
-            <h3 className="mt-1 text-2xl font-bold tracking-tight">Do you have a project in mind?</h3>
-            <p className="mt-2 text-gray-600">
-              I build fast, accessible websites with measurable outcomes.
-            </p>
-          </div>
-          <div className="shrink-0">
-            <ButtonCTA as={Link} href="/contact">
-              Start a project
-            </ButtonCTA>
-          </div>
-        </div>
-      </section>
+      {/* Final CTA band — sky blue to match testimonial cards */}
+<section className="mx-auto max-w-6xl px-4 pt-10 md:pt-12 pb-20">
+  <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div>
+      <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s Work</div>
+      <h3 className="mt-1 text-2xl font-bold tracking-tight">Do you have a project in mind?</h3>
+      <p className="mt-2 text-gray-600">
+        I build fast, accessible websites with measurable outcomes.
+      </p>
+    </div>
+    <div className="shrink-0">
+      <ButtonCTA as={Link} href="/contact">
+        Start a project
+      </ButtonCTA>
+    </div>
+  </div>
+</section>
 
       {/* JSON-LD Person for rich results */}
       <script
