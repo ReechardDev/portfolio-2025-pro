@@ -15,7 +15,6 @@ export default function PitchTeaser() {
             I build clean, fast web experiences that are measured—so launches perform.
           </h2>
 
-          {/* micro-proof */}
           <div className="mt-4 flex flex-wrap gap-2 text-sm">
             {PROOF.map((item) => (
               <span
@@ -27,30 +26,32 @@ export default function PitchTeaser() {
             ))}
           </div>
 
-          {/* CTAs */}
-          <div className="mt-6 flex flex-wrap justify-start gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             <ButtonCTA
               href="/contact"
               label="Let’s work"
               ariaLabel="Contact Inemesit David"
-              onClick={() =>
-                window.gtag?.("event", "click", {
-                  event_category: "cta",
-                  event_label: "home_pitch_contact",
-                })
-              }
+              gaEvent="click"
+              gaLabel="home_pitch_contact"
             />
             <ButtonCTA
               href="/pitch"
               label="Watch the pitch →"
               variant="ghost"
               ariaLabel="Watch the elevated pitch"
-              onClick={() =>
-                window.gtag?.("event", "click", {
-                  event_category: "cta",
-                  event_label: "home_pitch_watch",
-                })
-              }
+              prefetch={true}
+              gaEvent="click"
+              gaLabel="home_pitch_watch"
+            />
+            <ButtonCTA
+              href="/Inemesit-David-CV.pdf"
+              label="Download CV"
+              variant="ghost"
+              target="_blank"
+              rel="noopener noreferrer"
+              ariaLabel="Download CV (PDF)"
+              gaEvent="download"
+              gaLabel="home_pitch_cv"
             />
           </div>
         </div>
