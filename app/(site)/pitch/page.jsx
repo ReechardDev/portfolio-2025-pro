@@ -5,23 +5,26 @@ import ButtonCTA from "@/components/ui/ButtonCTA";
 const VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 
 export function generateMetadata() {
+  // Let the route-based OG/Twitter images take over (no explicit images here)
   const title = "Elevated Elevator Pitch";
-  const description = "A concise, single-flow elevator pitch with a supporting video.";
-  const url = "https://portfolio-2025-pro.vercel.app/pitch";
-  const image = "/og/default.png";
+  const description =
+    "A concise, single-flow elevator pitch with a supporting video.";
   return {
     title,
     description,
+    metadataBase: new URL("https://portfolio-2025-pro.vercel.app"),
     openGraph: {
       title,
       description,
-      url,
-      siteName: "Inemesit David — Portfolio",
-      images: [{ url: image, width: 1200, height: 630, alt: "Elevated Pitch" }],
+      url: "/pitch",
       type: "website",
-      locale: "en_US",
+      siteName: "Inemesit David — Portfolio",
     },
-    twitter: { card: "summary_large_image", title, description, images: [image] },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
@@ -55,10 +58,11 @@ export default function PitchPage() {
       </p>
 
       <p className="mt-4 leading-relaxed text-gray-800">
-        Over 8+ years across Ghana ↔ US, I’ve helped small teams move from idea to{" "}
-        <strong>conversion-ready</strong> sites—clarifying messaging, improving <strong>UX</strong>,
-        and tracking the moments that drive leads. If you’re looking for a partner who can
-        design, build, and <strong>prove impact</strong>, let’s talk.
+        Over 8+ years across Ghana ↔ US, I’ve helped small teams move from idea
+        to <strong>conversion-ready</strong> sites—clarifying messaging, improving{" "}
+        <strong>UX</strong>, and tracking the moments that drive leads. If you’re
+        looking for a partner who can design, build, and{" "}
+        <strong>prove impact</strong>, let’s talk.
       </p>
 
       <div className="mt-5 flex justify-center gap-3">
@@ -66,8 +70,7 @@ export default function PitchPage() {
           href="/contact"
           label="Let’s work"
           ariaLabel="Contact Inemesit David"
-          gaEvent="click"
-          gaLabel="pitch_contact"
+          gaEvent="pitch_contact"
         />
         <ButtonCTA
           href="/Inemesit-David-CV.pdf"
@@ -76,11 +79,12 @@ export default function PitchPage() {
           target="_blank"
           rel="noopener noreferrer"
           ariaLabel="Download Inemesit David CV (PDF)"
-          gaEvent="download"
-          gaLabel="pitch_cv"
+          gaEvent="pitch_cv"
         />
       </div>
-      <div className="mt-2 text-center text-xs text-gray-500">Same-day reply.</div>
+      <div className="mt-2 text-center text-xs text-gray-500">
+        Same-day reply.
+      </div>
 
       <div className="mt-12 flex justify-center">
         <div className="w-full max-w-md rounded-xl border border-sky-100 bg-white/70 p-3 shadow-sm">

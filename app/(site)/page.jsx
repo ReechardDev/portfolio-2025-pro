@@ -5,11 +5,10 @@ import dynamic from "next/dynamic";
 import SectionHeader from "../../components/SectionHeader";
 import { getAllCaseStudies } from "../../lib/caseStudies";
 import { TESTIMONIALS } from "../../lib/testimonials";
-import PitchTeaser from "@/components/PitchTeaser";
+import PitchTeaser from "../../components/PitchTeaser"; // relative import
 import SkillPills from "../../components/SkillPills";
 import ButtonCTA from "../../components/ui/ButtonCTA";
 
-// Framer Motion hero (client component)
 const HeroMotion = dynamic(() => import("../../components/HeroMotion"), { ssr: false });
 
 const SKILLS = [
@@ -17,7 +16,6 @@ const SKILLS = [
   "GitHub","Copywriting","GA4","GTM (basic)","On-page SEO","Vercel","Canva","Wireframes","Content Strategy",
 ];
 
-// Helper: choose a cover image by slug/title if `p.cover` is missing
 function coverFor(p = {}) {
   const s = (p.slug || "").toLowerCase();
   const t = (p.title || "").toLowerCase();
@@ -25,10 +23,9 @@ function coverFor(p = {}) {
   if (s.includes("robin") || t.includes("robin")) return "/work/robin-senior-care.jpg";
   if (s.includes("infinity") || t.includes("infinity")) return "/work/infinitylawns.jpg";
   if (s.includes("things") || s.includes("buy") || t.includes("things")) return "/work/things-you-should-buy.jpg";
-  return "/og/default.png"; // fallback
+  return "/og/default.png";
 }
 
-// tiny blur placeholder
 const BLUR =
   "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
@@ -181,22 +178,20 @@ export default async function HomePage() {
       <hr className="mx-auto max-w-6xl my-12 md:my-16 border-sky-100" />
 
       {/* Final CTA band — sky blue to match testimonial cards */}
-<section className="mx-auto max-w-6xl px-4 pt-10 md:pt-12 pb-20">
-  <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-    <div>
-      <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s Work</div>
-      <h3 className="mt-1 text-2xl font-bold tracking-tight">Do you have a project in mind?</h3>
-      <p className="mt-2 text-gray-600">
-        I build fast, accessible websites with measurable outcomes.
-      </p>
-    </div>
-    <div className="shrink-0">
-      <ButtonCTA as={Link} href="/contact">
-        Start a project
-      </ButtonCTA>
-    </div>
-  </div>
-</section>
+      <section className="mx-auto max-w-6xl px-4 pt-10 md:pt-12 pb-20">
+        <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s Work</div>
+            <h3 className="mt-1 text-2xl font-bold tracking-tight">Do you have a project in mind?</h3>
+            <p className="mt-2 text-gray-600">
+              I build fast, accessible websites with measurable outcomes.
+            </p>
+          </div>
+          <div className="shrink-0">
+            <ButtonCTA href="/contact">Start a project</ButtonCTA>
+          </div>
+        </div>
+      </section>
 
       {/* JSON-LD Person for rich results */}
       <script

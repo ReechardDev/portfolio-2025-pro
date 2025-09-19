@@ -1,5 +1,5 @@
 // components/PitchTeaser.jsx
-import ButtonCTA from "@/components/ui/ButtonCTA";
+import ButtonCTA from "./ui/ButtonCTA"; // <- relative path (no @)
 
 const PROOF = ["8+ yrs", "Next.js/Tailwind", "GA4/SEO", "Ghana ↔ US"];
 
@@ -15,6 +15,7 @@ export default function PitchTeaser() {
             I build clean, fast web experiences that are measured—so launches perform.
           </h2>
 
+          {/* micro-proof */}
           <div className="mt-4 flex flex-wrap gap-2 text-sm">
             {PROOF.map((item) => (
               <span
@@ -26,33 +27,11 @@ export default function PitchTeaser() {
             ))}
           </div>
 
+          {/* CTAs */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <ButtonCTA
-              href="/contact"
-              label="Let’s work"
-              ariaLabel="Contact Inemesit David"
-              gaEvent="click"
-              gaLabel="home_pitch_contact"
-            />
-            <ButtonCTA
-              href="/pitch"
-              label="Watch the pitch →"
-              variant="ghost"
-              ariaLabel="Watch the elevated pitch"
-              prefetch={true}
-              gaEvent="click"
-              gaLabel="home_pitch_watch"
-            />
-            <ButtonCTA
-              href="/Inemesit-David-CV.pdf"
-              label="Download CV"
-              variant="ghost"
-              target="_blank"
-              rel="noopener noreferrer"
-              ariaLabel="Download CV (PDF)"
-              gaEvent="download"
-              gaLabel="home_pitch_cv"
-            />
+            <ButtonCTA href="/contact" label="Let’s work" ariaLabel="Contact Inemesit David" gaEvent="home_pitch_contact" />
+            <ButtonCTA href="/pitch" label="Watch the pitch →" variant="ghost" ariaLabel="Watch the elevated pitch" prefetch gaEvent="home_pitch_watch" />
+            <ButtonCTA href="/Inemesit-David-CV.pdf" label="Download CV" variant="ghost" target="_blank" rel="noopener noreferrer" ariaLabel="Download CV (PDF)" gaEvent="home_pitch_cv" />
           </div>
         </div>
       </div>
