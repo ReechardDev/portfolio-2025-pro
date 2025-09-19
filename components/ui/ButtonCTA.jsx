@@ -1,25 +1,31 @@
 // components/ui/ButtonCTA.jsx
-"use client";
+import Link from "next/link";
 
-import { track } from "../../lib/ga";
+export default function ButtonCTA({
+  href = "#",
+  label,            // preferred
+  children,         // backward-compatible
+  variant = "primary", // "primary" | "ghost"
+  className = "",
+  target,
+  rel,
+}) {
+  const base =
+    "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition-colors " +
+    "focus:outline-none focus:ring-2 focus:ring-offset-2";
 
-export default function ButtonCTA({ as: As = "a", className = "", onClick, ...props }) {
-  const cls =
-    "inline-flex items-center justify-center gap-2 rounded-xl2 px-5 py-3 text-white transition " +
-    "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand " +
-    "bg-brand-cta hover:bg-brand-cta-hover " + className;
+  // Primary: solid black base → blue fill on hover/focus
+  // Ghost: blue outline → subtle blue fill on hover
+  const styles =
+    variant === "ghost"
+      ? "border border-sky-300 text-sky-700 hover:bg-sky-50 focus:ring-sky-300"
+      : "bg-gray-900 text-white hover:bg-sky-600 focus:ring-sky-300 active:bg-sky-700";
 
-  const handleClick = (e) => {
-    // Fire a generic CTA event unless caller provides their own handler
-    try {
-      const label =
-        props["data-ga-label"] ||
-        (typeof props.children === "string" ? props.children : props.href) ||
-        "cta";
-      track("cta_click", { label });
-    } catch {}
-    onClick?.(e);
-  };
+  const content = children ?? label ?? "Get started";
 
-  return <As className={cls} onClick={handleClick} {...props} />;
+  return (
+    <Link href={href} target={target} rel={rel} className={`${base} ${styles} ${className}`}>
+      {content}
+    </Link>
+  );
 }

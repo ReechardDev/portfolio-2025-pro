@@ -8,8 +8,9 @@ const FOOTER_LINKS = [
   { href: "/about", label: "About" },
   { href: "/resources", label: "Resources" },
   { href: "/articles", label: "Articles" },
-  { href: "/contact", label: "Contact" },
   { href: "/testimonials", label: "Testimonials" },
+  { href: "/contact", label: "Contact" },
+  { href: "/pitch", label: "Elevated Pitch" }, // ← new footer link
 ];
 
 export default function Footer() {
@@ -24,9 +25,8 @@ export default function Footer() {
           </div>
         </div>
         <div className="md:text-right">
-          <ButtonCTA as={Link} href="/contact">
-            Let’s work
-          </ButtonCTA>
+          {/* Use ButtonCTA’s href/label props per Codex */}
+          <ButtonCTA href="/contact" label="Let’s work" />
         </div>
       </div>
 
@@ -35,10 +35,7 @@ export default function Footer() {
         <ul className="flex flex-wrap gap-4 text-sm text-gray-600">
           {FOOTER_LINKS.map((l) => (
             <li key={l.href}>
-              <Link
-                href={l.href}
-                className="hover:text-brand-cta-hover transition"
-              >
+              <Link href={l.href} className="hover:text-brand-cta-hover transition">
                 {l.label}
               </Link>
             </li>
