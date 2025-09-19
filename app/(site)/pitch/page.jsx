@@ -5,18 +5,19 @@ import ButtonCTA from "../../../components/ui/ButtonCTA";
 const VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 
 export function generateMetadata() {
-  const title = "Elevated Elevator Pitch";
-  const description =
-    "I build clean, fast web experiences that are measured—so launches perform. Next.js/Tailwind + content strategy + GA4, with 8+ yrs shipping from Ghana ↔ US.";
   const base = "https://portfolio-2025-pro.vercel.app";
-  // ✅ Use an ABSOLUTE URL so scrapers don't miss it
-  const image = `${base}/og/default.png`;
+  const title = "Elevated Elevator Pitch";
+  // ≥100 chars (good for LinkedIn) and SEO-friendly
+  const description =
+    "I build clean, fast web experiences that are measured—so launches perform. I blend Next.js/Tailwind with content strategy and GA4. Over 8+ years (Ghana ↔ US), I help small teams design, ship, and prove impact.";
+  const image = `${base}/og/default.png`; // absolute URL
 
   return {
     title,
     description,
     metadataBase: new URL(base),
     alternates: { canonical: `${base}/pitch` },
+    robots: { index: true, follow: true },
 
     openGraph: {
       title,
@@ -40,7 +41,7 @@ export function generateMetadata() {
       card: "summary_large_image",
       title,
       description,
-      images: [image], // absolute
+      images: [image],
     },
   };
 }
@@ -104,7 +105,9 @@ export default function PitchPage() {
           gaEvent="pitch_cv"
         />
       </div>
-      <div className="mt-2 text-center text-xs text-gray-500">Same-day reply.</div>
+      <div className="mt-2 text-center text-xs text-gray-500">
+        Same-day reply.
+      </div>
 
       {/* Supporting video */}
       <div className="mt-12 flex justify-center">
