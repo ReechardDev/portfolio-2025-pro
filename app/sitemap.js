@@ -1,10 +1,19 @@
-import { getAllCaseStudies } from "@/lib/caseStudies";
+// app/sitemap.js
+import { getAllCaseStudies } from "../lib/caseStudies"; // ← relative path fixes the build
 
 export default async function sitemap() {
   const base = "https://portfolio-2025-pro.vercel.app";
-  const staticPaths = ["/","/work","/services","/about","/resources","/articles","/contact","/testimonials","/pitch"]
-    .map((p) => ({ url: `${base}${p}`, lastModified: new Date() }));
 
+  // Core static routes
+  const staticPaths = [
+    "/", "/work", "/services", "/about", "/resources",
+    "/articles", "/contact", "/testimonials", "/pitch",
+  ].map((path) => ({
+    url: `${base}${path}`,
+    lastModified: new Date(),
+  }));
+
+  // Dynamic /work/[slug] entries
   let workPaths = [];
   try {
     const cases = await getAllCaseStudies();
@@ -12,7 +21,9 @@ export default async function sitemap() {
       url: `${base}/work/${c.slug}`,
       lastModified: c.updatedAt ? new Date(c.updatedAt) : new Date(),
     }));
-  } catch {}
+  } catch {
+    // fail-soft: sitemap still returns static routes
+  }
 
   return [...staticPaths, ...workPaths];
 }
