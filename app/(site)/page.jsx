@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import SectionHeader from "../../components/SectionHeader";
 import { getAllCaseStudies } from "../../lib/caseStudies";
 import { TESTIMONIALS } from "../../lib/testimonials";
+import PitchTeaser from "@/components/PitchTeaser";
 import SkillPills from "../../components/SkillPills";
 import ButtonCTA from "../../components/ui/ButtonCTA";
 
@@ -173,8 +174,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA band */}
-      <section className="mx-auto max-w-6xl px-4 pb-20">
+      {/* Elevated Pitch teaser (no video) — after Testimonials */}
+      <PitchTeaser />
+
+      {/* Hairline divider to create a clean visual break */}
+      <hr className="mx-auto max-w-6xl my-12 md:my-16 border-sky-100" />
+
+      {/* Final CTA band (add top padding for breathing room) */}
+      <section className="mx-auto max-w-6xl px-4 pt-10 md:pt-12 pb-20">
         <div className="rounded-2xl border border-gray-200 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s Work</div>
