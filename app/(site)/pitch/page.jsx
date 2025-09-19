@@ -1,4 +1,4 @@
-// app/(site)/pitch/page.jsx 
+// app/(site)/pitch/page.jsx
 import VideoEmbed from "../../../components/VideoEmbed";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
@@ -7,28 +7,40 @@ const VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 export function generateMetadata() {
   const title = "Elevated Elevator Pitch";
   const description =
-    "A concise, single-flow elevator pitch with a supporting video.";
-  const url = "https://portfolio-2025-pro.vercel.app/pitch";
-  const image = "/og/default.png"; // static fallback image in /public/og/default.png
+    "I build clean, fast web experiences that are measured—so launches perform. Next.js/Tailwind + content strategy + GA4, with 8+ yrs shipping from Ghana ↔ US.";
+  const base = "https://portfolio-2025-pro.vercel.app";
+  // ✅ Use an ABSOLUTE URL so scrapers don't miss it
+  const image = `${base}/og/default.png`;
 
   return {
     title,
     description,
-    metadataBase: new URL("https://portfolio-2025-pro.vercel.app"),
-    alternates: { canonical: url },
+    metadataBase: new URL(base),
+    alternates: { canonical: `${base}/pitch` },
+
     openGraph: {
       title,
       description,
-      url,
-      type: "website",
+      url: `${base}/pitch`,
+      type: "article",
       siteName: "Inemesit David — Portfolio",
-      images: [{ url: image, width: 1200, height: 630, alt: "Elevated Pitch" }],
+      images: [
+        {
+          url: image,
+          secureUrl: image,
+          width: 1200,
+          height: 630,
+          type: "image/png",
+          alt: "Inemesit David — Elevated Elevator Pitch",
+        },
+      ],
     },
+
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [image],
+      images: [image], // absolute
     },
   };
 }
@@ -92,9 +104,7 @@ export default function PitchPage() {
           gaEvent="pitch_cv"
         />
       </div>
-      <div className="mt-2 text-center text-xs text-gray-500">
-        Same-day reply.
-      </div>
+      <div className="mt-2 text-center text-xs text-gray-500">Same-day reply.</div>
 
       {/* Supporting video */}
       <div className="mt-12 flex justify-center">
@@ -102,7 +112,12 @@ export default function PitchPage() {
           <VideoEmbed url={VIDEO_URL} title="Elevated Pitch Video" />
           <div className="mt-2 text-center text-xs text-gray-500">
             If it doesn’t load,{" "}
-            <a className="underline" href={VIDEO_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              className="underline"
+              href={VIDEO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               open here
             </a>
             .
