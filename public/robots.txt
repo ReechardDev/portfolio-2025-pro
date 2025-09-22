@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://portfolio-2025-pro.vercel.app
-
-# Sitemaps
-Sitemap: https://portfolio-2025-pro.vercel.app/sitemap.xml

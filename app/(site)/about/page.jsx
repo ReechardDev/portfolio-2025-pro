@@ -29,6 +29,18 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
 
+      {/* Lightweight GA4 click hook (uses data-ga attributes) */}
+      <Script id="about-ga-clicks" strategy="afterInteractive">
+        {`
+          window.addEventListener('click', (e) => {
+            const el = e.target.closest('[data-ga]');
+            if (!el || typeof window.gtag !== 'function') return;
+            const event = el.getAttribute('data-ga');
+            window.gtag('event', event, { page: 'about' });
+          });
+        `}
+      </Script>
+
       {/* Hero: portrait × value */}
       <section className="grid items-center gap-10 lg:grid-cols-2">
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gray-50">
@@ -38,7 +50,7 @@ export default function AboutPage() {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover object-[50%_20%]" // keep face nicely framed on mobile
           />
         </div>
         <div>
@@ -56,7 +68,11 @@ export default function AboutPage() {
           </ul>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonCTA asChild>
-              <Link href="/contact" aria-label="Start a project from About hero" data-ga="about_hero_start_project">
+              <Link
+                href="/contact"
+                aria-label="Start a project from About hero"
+                data-ga="about_hero_start_project"
+              >
                 Start a project
               </Link>
             </ButtonCTA>
@@ -72,8 +88,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Credibility strip */}
-      <section className="grid grid-cols-1 gap-4 rounded-2xl border bg-white p-6 sm:grid-cols-3">
+      {/* Credibility strip (added tiny top margin) */}
+      <section className="mt-2 grid grid-cols-1 gap-4 rounded-2xl border bg-white p-6 sm:grid-cols-3">
         <Fact title="8+ years">Digital and web</Fact>
         <Fact title="Ghana and U.S.">Clients served</Fact>
         <Fact title="Performance and SEO">Friendly builds</Fact>
@@ -81,10 +97,14 @@ export default function AboutPage() {
 
       {/* Story in three paras */}
       <section>
-        <SectionHeader eyebrow="Story" title="A bit about me" text="Practical work that ships, measures, and improves." />
+        <SectionHeader
+          eyebrow="Story"
+          title="A bit about me"
+          text="Practical work that ships, measures, and improves."
+        />
         <div className="prose prose-slate max-w-none">
           <p>
-            I am Inemesit David, a developer and digital marketer based in Accra. I help small businesses look sharp online and collect more enquiries without guessing.
+            I’m Inemesit David, a developer and digital marketer based in Accra. I help small businesses look sharp online and collect more enquiries without guessing.
           </p>
           <p>
             I care about simple structure, clear copy, and pages that load fast. I prefer shipping something solid, measuring results, and improving with real data.
@@ -97,7 +117,11 @@ export default function AboutPage() {
 
       {/* How I work */}
       <section>
-        <SectionHeader eyebrow="Process" title="How I work" text="Three simple steps that keep projects moving." />
+        <SectionHeader
+          eyebrow="Process"
+          title="How I work"
+          text="Three simple steps that keep projects moving."
+        />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card title="Discover" items={["Short brief", "Pages and priorities", "Success metrics"]} />
           <Card title="Build" items={["Next.js and Tailwind", "Content hierarchy", "On-page SEO and CTAs"]} />
@@ -107,7 +131,11 @@ export default function AboutPage() {
 
       {/* Signature strengths */}
       <section>
-        <SectionHeader eyebrow="Strengths" title="What I am good at" text="Design and UX, performance, and growth analytics." />
+        <SectionHeader
+          eyebrow="Strengths"
+          title="What I am good at"
+          text="Design and UX, performance, and growth analytics."
+        />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card
             title="Design and UX"
@@ -141,7 +169,11 @@ export default function AboutPage() {
 
       {/* Quick facts */}
       <section>
-        <SectionHeader eyebrow="At a glance" title="Quick facts" text="What you may want to know before we start." />
+        <SectionHeader
+          eyebrow="At a glance"
+          title="Quick facts"
+          text="What you may want to know before we start."
+        />
         <dl className="grid gap-4 rounded-2xl border bg-white p-6 sm:grid-cols-2 lg:grid-cols-3">
           <Fact title="Based in Accra">Work with Ghanaian and U.S. clients</Fact>
           <Fact title="Background">ICT degree with 8+ years in digital marketing and web development</Fact>
@@ -160,7 +192,7 @@ export default function AboutPage() {
               src="/images/about/full.webp" // put your full-body image here
               alt="Inemesit David standing, full-body studio photo"
               fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
               className="object-cover"
             />
           </div>
@@ -176,7 +208,9 @@ export default function AboutPage() {
       {/* Final CTA band */}
       <section className="rounded-2xl bg-slate-900 text-white p-8 sm:p-12 text-center">
         <h2 className="text-2xl sm:text-3xl font-semibold">Have a project in mind</h2>
-        <p className="mt-2 text-slate-200">Tell me what you want to build and I will show you the fastest path to live.</p>
+        <p className="mt-2 text-slate-200">
+          Tell me what you want to build and I will show you the fastest path to live.
+        </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <ButtonCTA asChild>
             <Link href="/contact" aria-label="Start a project" data-ga="about_final_start_project">
@@ -184,7 +218,7 @@ export default function AboutPage() {
             </Link>
           </ButtonCTA>
           <Link
-            href="https://wa.me/15551234567" // swap to your WhatsApp link
+            href="https://wa.me/+233595633424" // TODO: replace with your actual WhatsApp link
             className="inline-flex items-center rounded-2xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium hover:bg-white/10"
             aria-label="WhatsApp"
             data-ga="about_whatsapp_click"
@@ -226,7 +260,5 @@ function Fact({ title, children }) {
 }
 
 function Quote({ children }) {
-  return (
-    <div className="text-slate-800">“{children}”</div>
-  );
+  return <div className="text-slate-800">“{children}”</div>;
 }
