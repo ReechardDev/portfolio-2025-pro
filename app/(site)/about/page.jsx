@@ -45,12 +45,12 @@ export default function AboutPage() {
       <section className="grid items-center gap-10 lg:grid-cols-2">
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gray-50">
           <Image
-            src="/images/about/portrait.webp" // put your cropped waist-up image here
+            src="/images/about/portrait.webp"
             alt="Inemesit David, web developer"
             fill
             priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover object-[50%_20%]" // keep face nicely framed on mobile
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 640px"
+            className="object-cover object-[50%_18%]"
           />
         </div>
         <div>
@@ -88,8 +88,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Credibility strip (added tiny top margin) */}
-      <section className="mt-2 grid grid-cols-1 gap-4 rounded-2xl border bg-white p-6 sm:grid-cols-3">
+      {/* Credibility strip: subtle teal tint for cohesion */}
+      <section className="mt-2 grid grid-cols-1 gap-4 rounded-2xl border border-sky-100 bg-sky-50/40 p-6 sm:grid-cols-3">
         <Fact title="8+ years">Digital and web</Fact>
         <Fact title="Ghana and U.S.">Clients served</Fact>
         <Fact title="Performance and SEO">Friendly builds</Fact>
@@ -104,7 +104,7 @@ export default function AboutPage() {
         />
         <div className="prose prose-slate max-w-none">
           <p>
-            I’m Inemesit David, a developer and digital marketer based in Accra. I help small businesses look sharp online and collect more enquiries without guessing.
+            I'm Inemesit David, a developer and digital marketer based in Accra. I help small businesses look sharp online and collect more enquiries without guessing.
           </p>
           <p>
             I care about simple structure, clear copy, and pages that load fast. I prefer shipping something solid, measuring results, and improving with real data.
@@ -167,14 +167,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Quick facts */}
+      {/* Quick facts: add dividers on mobile for a smoother scan */}
       <section>
         <SectionHeader
           eyebrow="At a glance"
           title="Quick facts"
           text="What you may want to know before we start."
         />
-        <dl className="grid gap-4 rounded-2xl border bg-white p-6 sm:grid-cols-2 lg:grid-cols-3">
+        <dl className="grid gap-4 rounded-2xl border bg-white p-6 divide-y sm:divide-y-0 sm:grid-cols-2 lg:grid-cols-3">
           <Fact title="Based in Accra">Work with Ghanaian and U.S. clients</Fact>
           <Fact title="Background">ICT degree with 8+ years in digital marketing and web development</Fact>
           <Fact title="Stack">Next.js, React, Tailwind, Vercel, GA4, SEO tools</Fact>
@@ -189,7 +189,7 @@ export default function AboutPage() {
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-gray-50">
             <Image
-              src="/images/about/full.webp" // put your full-body image here
+              src="/images/about/full.webp"
               alt="Inemesit David standing, full-body studio photo"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
@@ -218,7 +218,7 @@ export default function AboutPage() {
             </Link>
           </ButtonCTA>
           <Link
-            href="https://wa.me/+233595633424" // TODO: replace with your actual WhatsApp link
+            href="https://wa.me/233XXXXXXXXX" // replace with your actual WhatsApp link
             className="inline-flex items-center rounded-2xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium hover:bg-white/10"
             aria-label="WhatsApp"
             data-ga="about_whatsapp_click"
@@ -252,7 +252,7 @@ function Card({ title, items }) {
 
 function Fact({ title, children }) {
   return (
-    <div className="min-h-[72px]">
+    <div className="min-h-[72px] py-2">
       <dt className="text-sm font-medium text-slate-500">{title}</dt>
       <dd className="mt-1 text-base text-slate-900">{children}</dd>
     </div>
