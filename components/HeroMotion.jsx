@@ -15,27 +15,29 @@ export default function HeroMotion() {
         className="max-w-3xl"
       >
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">
-          Product-minded <span className="text-brand-cta-hover">web developer</span> for{" "}
+          Product-minded{" "}
+          <span className="text-brand-cta-hover">web developer</span>{" "}
+          for{" "}
           <span className="text-brand-cta-hover">local businesses</span>
         </h1>
 
-        <p className="mt-3 text-slate-600">
-          Clean, conversion-ready websites with GA4 events on calls, WhatsApp, and forms. Built fast, measured, and improved.
+        <p className="mt-3 text-slate-700">
+          Clean, conversion-ready websites with GA4 events for calls, WhatsApp, and forms — built fast, measured, and improved.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          {/* Primary CTA: unified navy to sky hover */}
-          <ButtonCTA as={Link} href="/contact">
-            Start a project
+          <ButtonCTA asChild>
+            <Link href="/contact" data-ga="home_hero_start_project">
+              Start a project
+            </Link>
           </ButtonCTA>
-
-          {/* Secondary outline link: same hover feel as Work cards */}
-          <a
+          <Link
             href="/work"
-            className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+            className="inline-flex items-center rounded-2xl border px-4 py-2 text-sm font-medium hover:bg-slate-50"
+            data-ga="home_hero_see_work"
           >
-            See recent work <span className="transition hover:translate-x-0.5">→</span>
-          </a>
+            See recent work →
+          </Link>
         </div>
       </motion.div>
     </section>

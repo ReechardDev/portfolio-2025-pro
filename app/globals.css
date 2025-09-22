@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens */
 :root {
   --bg: 255 255 255;
   --fg: 15 23 42;
+  /* Exact hero highlight blue — used by the navbar */
+  --brand-hero: #93c5fd;
 }
 
 html, body {
