@@ -1,13 +1,13 @@
+// app/(site)/page.js
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import SectionHeader from "../../components/SectionHeader";
 import { getAllCaseStudies } from "../../lib/caseStudies";
 import { TESTIMONIALS } from "../../lib/testimonials";
-import PitchTeaser from "../../components/PitchTeaser"; // ← keep this
+import PitchTeaser from "../../components/PitchTeaser"; // keep this
 import SkillPills from "../../components/SkillPills";
 import ButtonCTA from "../../components/ui/ButtonCTA";
-
 
 const HeroMotion = dynamic(() => import("../../components/HeroMotion"), { ssr: false });
 
@@ -41,11 +41,11 @@ export default async function HomePage() {
       {/* ONE-LINER PROMISE + 2 bullets */}
       <section className="mx-auto max-w-6xl px-4 pt-2">
         <p className="text-slate-600">
-          I build conversion-ready sites for local businesses—measured and fast.
+          I build websites for businesses of every size, with special care for small local owners.
         </p>
         <ul className="mt-2 text-sm text-slate-600 list-disc pl-5">
-          <li>GA4 events on calls, WhatsApp & forms</li>
-          <li>Real improvements in site speed & leads</li>
+          <li>GA4 events on calls, WhatsApp, and forms</li>
+          <li>Real gains in load speed and qualified leads</li>
         </ul>
       </section>
 
@@ -66,28 +66,28 @@ export default async function HomePage() {
           <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Design & UX</div>
             <p className="mt-2 text-gray-600 text-sm">
-              Structure, copy hierarchy, and accessible components that guide users to action.
+              Clear layouts, helpful copy, and accessible components that guide visitors to take action.
             </p>
             <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
-              <li>IA & wireframes</li><li>Design systems</li><li>Content clarity</li>
+              <li>IA and wireframes</li><li>Design systems</li><li>Content clarity</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Build & Performance</div>
             <p className="mt-2 text-gray-600 text-sm">
-              Next.js + Tailwind with an image strategy, routing, and best-in-class Web Vitals.
+              Next.js and Tailwind with an image strategy, solid routing, and strong Web Vitals for every device.
             </p>
             <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
-              <li>LCP & CLS budgets</li><li>Responsive images</li><li>SSR/SSG routing</li>
+              <li>LCP and CLS budgets</li><li>Responsive images</li><li>SSR and SSG routing</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-5 hover-card">
             <div className="font-semibold">Measure & Grow</div>
             <p className="mt-2 text-gray-600 text-sm">
-              Google analytics, events and funnels to prove what works and iterate with confidence.
+              Analytics, events, and funnels that show what works, so we can improve with confidence.
             </p>
             <ul className="mt-3 text-sm text-gray-600 list-disc pl-5">
-              <li>GA4 events</li><li>Lead capture</li><li>SEO/OG polish</li>
+              <li>GA4 events</li><li>Lead capture</li><li>SEO and OG polish</li>
             </ul>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default async function HomePage() {
         <SectionHeader
           eyebrow="Work"
           title="Recent case studies"
-          text="A few projects I've built for local business owners."
+          text="A few projects I have built for local business owners."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {featured.map((p) => (
@@ -171,20 +171,20 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Elevated Pitch teaser (no video) — after Testimonials */}
+      {/* Elevated Pitch teaser (no video) after Testimonials */}
       <PitchTeaser />
 
       {/* Hairline divider to create a clean visual break */}
       <hr className="mx-auto max-w-6xl my-12 md:my-16 border-sky-100" />
 
-      {/* Final CTA band — sky blue to match testimonial cards */}
+      {/* Final CTA band, sky blue to match testimonial cards */}
       <section className="mx-auto max-w-6xl px-4 pt-10 md:pt-12 pb-20">
         <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s Work</div>
             <h3 className="mt-1 text-2xl font-bold tracking-tight">Do you have a project in mind?</h3>
             <p className="mt-2 text-gray-600">
-              I build fast, accessible websites with measurable outcomes.
+              I build fast and accessible websites with clear goals and measurable outcomes.
             </p>
           </div>
           <div className="shrink-0">

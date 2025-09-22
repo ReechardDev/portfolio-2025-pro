@@ -20,21 +20,21 @@ export default function HeroMotion() {
         </h1>
 
         <p className="mt-3 text-slate-600">
-          Clean, conversion-ready websites with GA4 events for calls, WhatsApp and forms — built fast, measured, and improved.
+          Clean, conversion-ready websites with GA4 events on calls, WhatsApp, and forms. Built fast, measured, and improved.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          {/* Primary CTA — unified navy → sky hover */}
+          {/* Primary CTA: unified navy to sky hover */}
           <ButtonCTA as={Link} href="/contact">
             Start a project
           </ButtonCTA>
 
-          {/* Secondary outline link — same hover feel as Work cards */}
+          {/* Secondary outline link: same hover feel as Work cards */}
           <a
             href="/work"
             className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
           >
-            See recent work <span className="transition translate-x-0 group-hover:translate-x-0.5">→</span>
+            See recent work <span className="transition hover:translate-x-0.5">→</span>
           </a>
         </div>
       </motion.div>
