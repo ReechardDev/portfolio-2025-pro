@@ -118,6 +118,7 @@ export default async function HomePage() {
               href={p.liveUrl || `/work/${p.slug}`}
               target={p.liveUrl ? "_blank" : undefined}
               rel={p.liveUrl ? "noopener noreferrer" : undefined}
+              aria-label={p.liveUrl ? `${p.title} (opens in a new tab)` : undefined}
               className="group overflow-hidden rounded-2xl border border-gray-200 transition hover:border-brand-cta-hover hover:shadow-md"
             >
               <Image

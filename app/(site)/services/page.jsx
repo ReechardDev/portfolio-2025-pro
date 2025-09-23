@@ -12,6 +12,7 @@ export const metadata = {
     url: "https://portfolio-2025-pro.vercel.app/services",
     type: "website",
   },
+  alternates: { canonical: "/services" },
 };
 
 const PLANS = [
@@ -21,33 +22,59 @@ const PLANS = [
     includes: "1–3 pages, mobile-ready, basic SEO",
     blurb: "One-page or small site to get you live fast.",
     points: ["Responsive build", "Basic SEO + sitemap.xml", "Contact form / WhatsApp"],
+    minPrice: 1000,
   },
   {
     name: "Standard",
     price: "From ₵3,000",
     includes: "Up to 6 pages, GA4 events, CMS-ready",
     blurb: "Brochure site with strong conversion paths.",
-    points: [
-      "Up to 6 pages",
-      "GA4 call/WhatsApp/form events",
-      "On-page SEO + OG images",
-    ],
+    points: ["Up to 6 pages", "GA4 call/WhatsApp/form events", "On-page SEO + OG images"],
     badge: "Most Popular",
+    minPrice: 3000,
   },
   {
     name: "Pro",
     price: "Custom (₵)",
     includes: "Listings, admin, integrations",
     blurb: "Advanced site or mini-commerce with integrations.",
-    points: [
-      "Unlimited pages",
-      "Performance + accessibility pass",
-      "Integrations (Calendly, GA4, more)",
-    ],
+    points: ["Unlimited pages", "Performance + accessibility pass", "Integrations (Calendly, GA4, more)"],
+    minPrice: null, // custom scope
   },
 ];
 
 export default function ServicesPage() {
+  // JSON-LD: LocalBusiness with Offers
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Inemesit David — Web Developer",
+    url: "https://portfolio-2025-pro.vercel.app/services",
+    areaServed: ["GH", "US"],
+    offers: PLANS.map((p) => {
+      const offer = {
+        "@type": "Offer",
+        name: p.name,
+        description: `${p.blurb} ${p.includes}`,
+        priceCurrency: "GHS",
+        availability: "https://schema.org/InStock",
+        url: "https://portfolio-2025-pro.vercel.app/services",
+      };
+      // Represent “From ₵X,XXX” using a minPrice priceSpecification
+      if (typeof p.minPrice === "number") {
+        offer.priceSpecification = {
+          "@type": "PriceSpecification",
+          priceCurrency: "GHS",
+          minPrice: p.minPrice,
+        };
+      } else {
+        // Custom pricing: omit price, keep descriptive fields
+        offer.category = "Custom";
+      }
+      return offer;
+    }),
+  };
+
   return (
     <main id="content" className="mx-auto max-w-6xl px-4 py-16">
       <header className="max-w-2xl">
@@ -115,6 +142,13 @@ export default function ServicesPage() {
           , and I’ll confirm an exact quote.
         </p>
       </section>
+
+      {/* Structured Data JSON-LD */}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
     </main>
   );
 }

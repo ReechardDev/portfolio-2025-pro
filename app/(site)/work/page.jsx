@@ -3,11 +3,18 @@ import Link from "next/link";
 import { getAllCaseStudies } from "../../../lib/caseStudies";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
+export const metadata = {
+  title: "Work | Inemesit David",
+  description:
+    "Case studies and live projects showcasing performance and conversion results.",
+  alternates: { canonical: "/work" },
+};
+
 export default async function WorkPage() {
   const work = await getAllCaseStudies();
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-16">
+    <main id="content" className="mx-auto max-w-6xl px-4 py-16">
       <header className="max-w-2xl">
         <h1 className="text-3xl/tight font-semibold text-slate-900">Selected Work</h1>
         <p className="mt-2 text-slate-600">Case studies and live sites I’ve built and improved.</p>
@@ -46,6 +53,7 @@ export default async function WorkPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+                  aria-label={`${w.title} (opens in a new tab)`}
                 >
                   Visit site →
                 </a>
