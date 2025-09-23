@@ -15,14 +15,14 @@ export default function HeroMotion() {
         className="max-w-3xl"
       >
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">
-          Product-minded{" "}
-          <span className="text-brand-cta-hover">web developer</span>{" "}
+          I build & design fast {" "}
+          <span className="text-brand-cta-hover">website</span>{" "}
           for{" "}
           <span className="text-brand-cta-hover">local businesses</span>
         </h1>
 
         <p className="mt-3 text-slate-700">
-          Clean, conversion-ready websites with GA4 events for calls, WhatsApp, and forms — built fast, measured, and improved.
+          Clean, conversion-ready websites with Google analytic events for calls, WhatsApp, and forms. built fast, measured, and improved.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">

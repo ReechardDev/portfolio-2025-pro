@@ -55,7 +55,7 @@ export default function ContactForm() {
       <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6">
         <div className="text-lg font-medium text-slate-900">Thanks! 🎉</div>
         <p className="mt-1 text-sm text-slate-600">
-          Your message was sent. I’ll get back to you within 24–48 hours.
+          Your message was sent. I'll get back to you within 24-48 hours.
         </p>
       </div>
     );
@@ -64,7 +64,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 shadow-sm hover-card">
       <div className="text-lg font-medium text-slate-900">Email me directly</div>
-      <p className="mt-1 text-sm text-slate-600">Fill this form and I’ll reply shortly.</p>
+      <p className="mt-1 text-sm text-slate-600">Fill this form and I'll reply shortly.</p>
 
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         <div>

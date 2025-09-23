@@ -12,8 +12,8 @@ import ButtonCTA from "../../components/ui/ButtonCTA";
 const HeroMotion = dynamic(() => import("../../components/HeroMotion"), { ssr: false });
 
 const SKILLS = [
-  "HTML","CSS","JavaScript","React","Next.js","TailwindCSS","Lucide","Google Domain",
-  "GitHub","Copywriting","GA4","GTM (basic)","On-page SEO","Vercel","Canva","Wireframes","Content Strategy",
+  "HTML","CSS","JavaScript","React","Next.js","Google Analytics","Lucide","Google Domain",
+  "Tailwind","Copywriting","GitHub","Wordpress","SEO","Vercel","Canva","Wireframes","Content Strategy",
 ];
 
 function coverFor(p = {}) {
@@ -39,7 +39,7 @@ export default async function HomePage() {
       {/* Warm one-liner + proof bullets */}
       <section className="mx-auto max-w-6xl px-4 pt-2">
         <p className="text-slate-700">
-          I’m Inemesit David. I build clean, fast websites for small businesses and local owners, then wire them to GA4 so we can see what works.
+          I'm Inemesit David. I build clean, fast websites for small businesses and local owners, then wire them to google analytics so we can see what works.
         </p>
         <ul className="mt-2 text-sm text-slate-700 list-disc pl-5">
           <li>Events on calls, WhatsApp, and forms</li>
@@ -85,7 +85,7 @@ export default async function HomePage() {
               Analytics, events, and funnels that show what works, so we can improve with confidence.
             </p>
             <ul className="mt-3 text-sm text-gray-700 list-disc pl-5">
-              <li>GA4 events</li><li>Lead capture</li><li>SEO and OG polish</li>
+              <li>Google analytic events</li><li>Lead capture</li><li>SEO and OG polish</li>
             </ul>
           </div>
         </div>
@@ -174,10 +174,10 @@ export default async function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pt-10 md:pt-12 pb-20">
         <div className="rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let’s work</div>
+            <div className="text-sm text-brand font-semibold uppercase tracking-wider">Let's work</div>
             <h3 className="mt-1 text-2xl font-bold tracking-tight">Do you have a project in mind?</h3>
             <p className="mt-2 text-gray-700">
-              I build fast and accessible websites with clear goals and measurable outcomes.
+              I build fast, smooth websites with clear goals and measurable outcomes.
             </p>
           </div>
           <div className="shrink-0">
@@ -200,7 +200,7 @@ export default async function HomePage() {
               "https://github.com/ReechardDev",
               "https://www.linkedin.com/in/inemesit-david-739676318/"
             ],
-            knowsAbout: ["Next.js","GA4","Local SEO","Tailwind CSS"]
+            knowsAbout: ["Next.js","Google analytics","Local SEO","Tailwind CSS"]
           }),
         }}
       />
