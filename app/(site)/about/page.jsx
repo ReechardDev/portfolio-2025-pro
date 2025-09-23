@@ -5,19 +5,24 @@ import Script from "next/script";
 import SectionHeader from "../../../components/SectionHeader";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
-export const metadata = { title: "About" };
+export const metadata = {
+  title: "About Me | Inemesit David",
+  description:
+    "Learn more about Inemesit David — a product-minded web developer who builds clean, fast, and conversion-ready websites for local businesses.",
+};
 
 export default function AboutPage() {
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Inemesit David",
-    jobTitle: "Web Developer",
+    jobTitle: "Product-minded Web Developer",
     url: "https://portfolio-2025-pro.vercel.app/about",
     sameAs: [
-      "https://portfolio-2025-pro.vercel.app/",
+      "https://github.com/ReechardDev",
       "https://www.linkedin.com/in/inemesit-david-739676318/",
     ],
+    knowsAbout: ["Next.js", "Tailwind CSS", "SEO", "Google Analytics"],
   };
 
   return (
@@ -88,14 +93,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Credibility strip: subtle teal tint for cohesion */}
+      {/* Credibility strip */}
       <section className="mt-2 grid grid-cols-1 gap-4 rounded-2xl border border-sky-100 bg-sky-50/40 p-6 sm:grid-cols-3">
         <Fact title="8+ years">Digital and web</Fact>
         <Fact title="Ghana and U.S.">Clients served</Fact>
         <Fact title="Performance and SEO">Friendly builds</Fact>
       </section>
 
-      {/* Story in three paras */}
+      {/* Story */}
       <section>
         <SectionHeader
           eyebrow="Story"
@@ -129,7 +134,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Signature strengths */}
+      {/* Strengths */}
       <section>
         <SectionHeader
           eyebrow="Strengths"
@@ -152,7 +157,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Results and kind words */}
+      {/* Results */}
       <section>
         <SectionHeader eyebrow="Results" title="Kind words" text="Short quotes from recent projects." />
         <div className="grid gap-4 rounded-2xl border bg-white p-6">
@@ -167,7 +172,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Quick facts: add dividers on mobile for a smoother scan */}
+      {/* Quick facts */}
       <section>
         <SectionHeader
           eyebrow="At a glance"
@@ -184,7 +189,7 @@ export default function AboutPage() {
         </dl>
       </section>
 
-      {/* Personality strip with full-body photo */}
+      {/* Personality */}
       <section className="rounded-2xl border bg-white p-6 sm:p-8">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-gray-50">
@@ -205,7 +210,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Final CTA band */}
+      {/* Final CTA */}
       <section className="rounded-2xl bg-slate-900 text-white p-8 sm:p-12 text-center">
         <h2 className="text-2xl sm:text-3xl font-semibold">Have a project in mind</h2>
         <p className="mt-2 text-slate-200">
@@ -218,7 +223,7 @@ export default function AboutPage() {
             </Link>
           </ButtonCTA>
           <Link
-            href="https://wa.me/233XXXXXXXXX" // replace with your actual WhatsApp link
+            href="https://wa.me/233XXXXXXXXX" // replace with your WhatsApp
             className="inline-flex items-center rounded-2xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium hover:bg-white/10"
             aria-label="WhatsApp"
             data-ga="about_whatsapp_click"
