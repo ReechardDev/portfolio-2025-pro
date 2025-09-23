@@ -7,8 +7,15 @@ import { Mail, Phone, MessageCircle, Instagram, Linkedin, Github } from "lucide-
 import { SITE } from "../../../lib/site"; // ← FIX: use SITE (not SITE2)
 
 export const metadata = {
-  title: "Contact",
+  title: "Contact | Inemesit David",
   description: "Tell me about your project. I reply within 24 to 48 hours.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact — Inemesit David",
+    description: "Tell me about your project. I reply within 24 to 48 hours.",
+    url: "https://portfolio-2025-pro.vercel.app/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {
@@ -23,6 +30,7 @@ export default function ContactPage() {
   const INSTAGRAM = SITE?.instagram || "#";
   const INTAKE_FORM = "/files/intake-form.pdf"; // swap to your actual path
   const BOOK_LINK = SITE?.bookLink || "https://cal.com/"; // swap to your booking link
+
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-12">

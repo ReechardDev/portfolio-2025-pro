@@ -13,6 +13,18 @@ export const metadata = {
 export default async function WorkPage() {
   const work = await getAllCaseStudies();
 
+  // JSON-LD: ItemList for projects
+  const itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: (work || []).map((w, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: w?.liveUrl ? w.liveUrl : `https://portfolio-2025-pro.vercel.app/work/${w?.slug}`,
+      name: w?.title || "Project",
+    })),
+  };
+
   return (
     <main id="content" className="mx-auto max-w-6xl px-4 py-16">
       <header className="max-w-2xl">
@@ -52,8 +64,8 @@ export default async function WorkPage() {
                   href={w.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
                   aria-label={`${w.title} (opens in a new tab)`}
+                  className="inline-flex items-center gap-2 rounded-xl2 border border-slate-200 bg-white px-5 py-3 text-slate-900 transition hover:border-brand-cta-hover hover:text-brand-cta-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
                 >
                   Visit site →
                 </a>
@@ -62,6 +74,13 @@ export default async function WorkPage() {
           </article>
         ))}
       </section>
+
+      {/* Structured data */}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }}
+      />
     </main>
   );
 }

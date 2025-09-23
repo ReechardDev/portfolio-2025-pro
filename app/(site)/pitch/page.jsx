@@ -9,22 +9,21 @@ export function generateMetadata() {
   const title = "Elevated Elevator Pitch";
   // ≥100 chars (good for LinkedIn) and SEO-friendly
   const description =
-    "I build clean, fast web experiences that are measured—so launches perform. I blend Next.js/Tailwind with content strategy and GA4. Over 8+ years (Ghana ↔ US), I help small teams design, ship, and prove impact.";
+    "I build clean, fast web experiences that are measured — so launches perform. I blend Next.js/Tailwind with content strategy and GA4. Over 8+ years (Ghana ↔ US), I help small teams design, ship, and prove impact.";
   const image = `${base}/og/default.png`; // absolute URL
 
   return {
     title,
     description,
     metadataBase: new URL(base),
-    alternates: { canonical: `${base}/pitch` },
+    alternates: { canonical: "/pitch" }, // relative; resolves via metadataBase
     robots: { index: true, follow: true },
-
     openGraph: {
       title,
       description,
       url: `${base}/pitch`,
       type: "article",
-      siteName: "Inemesit David — Portfolio",
+      siteName: "Inemesit David",
       images: [
         {
           url: image,
@@ -36,7 +35,6 @@ export function generateMetadata() {
         },
       ],
     },
-
     twitter: {
       card: "summary_large_image",
       title,
@@ -48,7 +46,7 @@ export function generateMetadata() {
 
 export default function PitchPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10">
+    <main id="content" className="mx-auto max-w-3xl px-4 py-10">
       {/* Subtle page label */}
       <div className="text-[11px] uppercase tracking-wider text-sky-700/80">
         Elevator Pitch
@@ -74,17 +72,17 @@ export default function PitchPage() {
       {/* Pitch text */}
       <p className="mt-5 text-lg leading-relaxed text-gray-800">
         I build <strong>clean, fast</strong> web experiences that are{" "}
-        <strong>measured</strong>so websites are not just pretty; they perform.
-        I combine <strong>Next.js/Tailwind</strong> with{" "}
-        <strong>content strategy</strong> and <strong>Google analytics</strong> to build what
-        matters quickly, then iterate with data.
+        <strong>measured</strong> — so websites are not just pretty; they
+        perform. I combine <strong>Next.js/Tailwind</strong> with{" "}
+        <strong>content strategy</strong> and <strong>Google Analytics</strong>{" "}
+        to build what matters quickly, then iterate with data.
       </p>
       <p className="mt-4 leading-relaxed text-gray-800">
-        Over 2+ years across Ghana ↔ US, I've helped small teams move from idea
-        to <strong>conversion-ready</strong> sites, clarifying messaging,
-        improving <strong>UX</strong>, and tracking the moments that drive
-        leads. If you're looking for a partner who can design, build, and{" "}
-        <strong>prove impact</strong>, let's talk.
+        Over <strong>8+ years</strong> across Ghana ↔ US, I've helped small
+        teams move from idea to <strong>conversion-ready</strong> sites,
+        clarifying messaging, improving <strong>UX</strong>, and tracking the
+        moments that drive leads. If you're looking for a partner who can
+        design, build, and <strong>prove impact</strong>, let's talk.
       </p>
 
       {/* CTAs */}
@@ -120,6 +118,7 @@ export default function PitchPage() {
               href={VIDEO_URL}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Open the pitch video on YouTube (opens in a new tab)"
             >
               open here
             </a>
@@ -127,6 +126,6 @@ export default function PitchPage() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

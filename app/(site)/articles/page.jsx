@@ -1,5 +1,19 @@
-// app/(site)/articles/page.jsx
+// app/(site)/articles/page.jsx 
 import SectionHeader from "../../../components/SectionHeader";
+
+export const metadata = {
+  title: "Articles | Inemesit David",
+  description:
+    "Short, practical notes on web development, design rhythm, GA4 events, and service-site IA.",
+  alternates: { canonical: "/articles" },
+  openGraph: {
+    title: "Articles — Inemesit David",
+    description:
+      "Short, practical notes on web development, design rhythm, GA4 events, and service-site IA.",
+    url: "https://portfolio-2025-pro.vercel.app/articles",
+    type: "website",
+  },
+};
 
 const ARTICLES = [
   {
@@ -34,7 +48,7 @@ function formatDate(input) {
 
 export default function ArticlesPage() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
+    <main id="content" className="mx-auto max-w-6xl px-4 py-12">
       <SectionHeader eyebrow="Short, practical notes" title="Articles" text="" />
       <div className="mt-6 grid gap-4">
         {ARTICLES.map((a) => (
@@ -55,6 +69,6 @@ export default function ArticlesPage() {
           </a>
         ))}
       </div>
-    </section>
+    </main>
   );
 }

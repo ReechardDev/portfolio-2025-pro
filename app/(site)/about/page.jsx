@@ -9,6 +9,7 @@ export const metadata = {
   title: "About Me | Inemesit David",
   description:
     "Learn more about Inemesit David — a product-minded web developer who builds clean, fast, and conversion-ready websites for local businesses.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
@@ -34,7 +35,7 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
 
-      {/* Lightweight GA4 click hook (uses data-ga attributes) */}
+      {/* Lightweight GA4 click hook */}
       <Script id="about-ga-clicks" strategy="afterInteractive">
         {`
           window.addEventListener('click', (e) => {
@@ -46,7 +47,7 @@ export default function AboutPage() {
         `}
       </Script>
 
-      {/* Hero: portrait × value */}
+      {/* Hero */}
       <section className="grid items-center gap-10 lg:grid-cols-2">
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gray-50">
           <Image
@@ -54,6 +55,7 @@ export default function AboutPage() {
             alt="Inemesit David, web developer"
             fill
             priority
+            decoding="async"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 640px"
             className="object-cover object-[50%_18%]"
           />
@@ -197,6 +199,7 @@ export default function AboutPage() {
               src="/images/about/full.webp"
               alt="Inemesit David standing, full-body studio photo"
               fill
+              decoding="async"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
               className="object-cover"
             />
@@ -223,9 +226,11 @@ export default function AboutPage() {
             </Link>
           </ButtonCTA>
           <Link
-            href="https://wa.me/233XXXXXXXXX" // replace with your WhatsApp
+            href="https://wa.me/233XXXXXXXXX" // TODO: replace with your real number (no leading 0 after 233)
             className="inline-flex items-center rounded-2xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium hover:bg-white/10"
-            aria-label="WhatsApp"
+            aria-label="WhatsApp (opens in a new tab)"
+            target="_blank"
+            rel="noopener noreferrer"
             data-ga="about_whatsapp_click"
           >
             WhatsApp
