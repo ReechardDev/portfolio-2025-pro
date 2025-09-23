@@ -4,6 +4,7 @@ import Link from "next/link";
 import Script from "next/script";
 import SectionHeader from "../../../components/SectionHeader";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
+import { SITE } from "../../../lib/site";
 
 export const metadata = {
   title: "About Me | Inemesit David",
@@ -13,6 +14,8 @@ export const metadata = {
 };
 
 export default function AboutPage() {
+  const WHATSAPP = SITE?.whatsappLink || "https://wa.me/233595633424";
+
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -27,7 +30,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+    <main id="content" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 space-y-20">
       {/* JSON-LD for SEO */}
       <Script
         id="person-json-ld"
@@ -226,7 +229,7 @@ export default function AboutPage() {
             </Link>
           </ButtonCTA>
           <Link
-            href="https://wa.me/233XXXXXXXXX" // TODO: replace with your real number (no leading 0 after 233)
+            href={WHATSAPP}
             className="inline-flex items-center rounded-2xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium hover:bg-white/10"
             aria-label="WhatsApp (opens in a new tab)"
             target="_blank"
