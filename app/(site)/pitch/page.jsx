@@ -1,4 +1,4 @@
-// app/(site)/pitch/page.jsx
+﻿// app/(site)/pitch/page.jsx
 import VideoEmbed from "../../../components/VideoEmbed";
 import ButtonCTA from "../../../components/ui/ButtonCTA";
 
@@ -7,9 +7,9 @@ const VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 export function generateMetadata() {
   const base = "https://portfolio-2025-pro.vercel.app";
   const title = "Elevated Elevator Pitch";
-  // ≥100 chars (good for LinkedIn) and SEO-friendly
+  // â‰¥100 chars (good for LinkedIn) and SEO-friendly
   const description =
-    "I build clean, fast web experiences that are measured — so launches perform. I blend Next.js/Tailwind with content strategy and GA4. Over 8+ years (Ghana ↔ US), I help small teams design, ship, and prove impact.";
+    "I build clean, fast web experiences that are measured â€” so launches perform. I blend Next.js/Tailwind with content strategy and GA4. Over 2+ years (Ghana â†” US), I help small teams design, ship, and prove impact.";
   const image = `${base}/og/default.png`; // absolute URL
 
   return {
@@ -31,7 +31,7 @@ export function generateMetadata() {
           width: 1200,
           height: 630,
           type: "image/png",
-          alt: "Inemesit David — Elevated Elevator Pitch",
+          alt: "Inemesit David â€” Elevated Elevator Pitch",
         },
       ],
     },
@@ -59,7 +59,7 @@ export default function PitchPage() {
 
       {/* Micro-proof chips */}
       <div className="mt-3 flex flex-wrap gap-2 text-sm">
-        {["8+ yrs", "Next.js/Tailwind", "GA4/SEO", "Ghana ↔ US"].map((item) => (
+        {["2+ yrs", "Next.js/Tailwind", "GA4/SEO", "Ghana â†” US"].map((item) => (
           <span
             key={item}
             className="rounded-full border border-sky-100 bg-sky-50 px-3 py-1 text-gray-800"
@@ -72,13 +72,13 @@ export default function PitchPage() {
       {/* Pitch text */}
       <p className="mt-5 text-lg leading-relaxed text-gray-800">
         I build <strong>clean, fast</strong> web experiences that are{" "}
-        <strong>measured</strong> — so websites are not just pretty; they
+        <strong>measured</strong> â€” so websites are not just pretty; they
         perform. I combine <strong>Next.js/Tailwind</strong> with{" "}
         <strong>content strategy</strong> and <strong>Google Analytics</strong>{" "}
         to build what matters quickly, then iterate with data.
       </p>
       <p className="mt-4 leading-relaxed text-gray-800">
-        Over <strong>2+ years</strong> across Ghana ↔ US, I've helped small
+        Over <strong>2+ years</strong> across Ghana â†” US, I've helped small
         teams move from idea to <strong>conversion-ready</strong> websites,
         clarifying messaging, improving <strong>UX</strong>, and tracking the
         moments that drive leads. If you're looking for a partner who can
@@ -89,7 +89,7 @@ export default function PitchPage() {
       <div className="mt-5 flex justify-center gap-3">
         <ButtonCTA
           href="/contact"
-          label="Let’s work"
+          label="Letâ€™s work"
           ariaLabel="Contact Inemesit David"
           gaEvent="pitch_contact"
         />
@@ -129,3 +129,4 @@ export default function PitchPage() {
     </main>
   );
 }
+
