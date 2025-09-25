@@ -46,7 +46,7 @@ export default async function HomePage() {
       {/* Warm intro + proof bullets */}
       <section className="mx-auto max-w-6xl px-4 pt-2">
         <p className="text-slate-700">
-          I’m <strong>Inemesit David</strong>. I build clean, fast websites for small businesses and local owners, then wire them to Google Analytics so we can see what works.
+          I'm <strong>Inemesit David</strong>. I build clean, fast websites for small businesses and local owners, then wire in Google Analytics so we can see what works.
         </p>
         <ul className="mt-2 list-disc pl-5 text-sm text-slate-700">
           <li>Events on calls, WhatsApp, and forms</li>
@@ -74,7 +74,7 @@ export default async function HomePage() {
               Clear layouts, helpful copy, and accessible components that guide visitors to take action.
             </p>
             <ul className="mt-3 list-disc pl-5 text-sm text-gray-700">
-              <li>IA and wireframes</li>
+              <li>wireframes & IA</li>
               <li>Design systems</li>
               <li>Content clarity</li>
             </ul>
@@ -93,7 +93,7 @@ export default async function HomePage() {
           <div className="hover-card rounded-2xl border border-brand-cta-hover bg-sky-50 p-5">
             <div className="font-semibold">Measure & Grow</div>
             <p className="mt-2 text-sm text-gray-700">
-              Analytics, events, and funnels that show what works—so we can improve with confidence.
+              Analytics, events, and funnels that show what works, so we can improve with confidence.
             </p>
             <ul className="mt-3 list-disc pl-5 text-sm text-gray-700">
               <li>Google Analytics events</li>
@@ -109,7 +109,7 @@ export default async function HomePage() {
         <SectionHeader
           eyebrow="Work"
           title="Recent case studies"
-          text="A few projects I’ve built for local business owners."
+          text="A few projects I built for local business owners."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {featured.map((p) => (
@@ -184,7 +184,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pt-10 pb-20 md:pt-12">
         <div className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-brand-cta-hover bg-sky-50 p-6 md:flex-row md:items-center md:p-8">
           <div>
-            <div className="text-sm font-semibold uppercase tracking-wider text-brand">Let’s work</div>
+            <div className="text-sm font-semibold uppercase tracking-wider text-brand">Let's work</div>
             <h3 className="mt-1 text-2xl font-bold tracking-tight">Do you have a project in mind?</h3>
             <p className="mt-2 text-gray-700">
               I build fast, smooth websites with clear goals and measurable outcomes.

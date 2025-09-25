@@ -22,7 +22,7 @@ export default function HeroMotion() {
         </h1>
 
         <p className="mt-3 text-slate-700">
-          Clean, conversion-ready websites with Google analytic events for calls, WhatsApp, and forms. built fast, measured, and improved.
+          Clean, conversion-ready websites with google analytic events for calls, WhatsApp, and forms. built fast, measured, and improved.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">

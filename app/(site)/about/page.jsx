@@ -14,7 +14,7 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  const WHATSAPP = SITE?.whatsappLink || "https://wa.me/233595633424";
+  const WHATSAPP = SITE?.whatsappLink || "https://wa.me/+233595633424";
 
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -73,7 +73,7 @@ export default function AboutPage() {
           </p>
           <ul className="mt-6 space-y-2 text-slate-700">
             <li>Next.js and Tailwind on Vercel for speed and stability</li>
-            <li>GA4 events wired to calls, WhatsApp, and forms</li>
+            <li>Google Analytic events wired to calls, WhatsApp, and forms</li>
             <li>Clear copy and structure that helps people take action</li>
           </ul>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -100,7 +100,7 @@ export default function AboutPage() {
 
       {/* Credibility strip */}
       <section className="mt-2 grid grid-cols-1 gap-4 rounded-2xl border border-sky-100 bg-sky-50/40 p-6 sm:grid-cols-3">
-        <Fact title="8+ years">Digital and web</Fact>
+        <Fact title="2+ years">Digital and web</Fact>
         <Fact title="Ghana and U.S.">Clients served</Fact>
         <Fact title="Performance and SEO">Friendly builds</Fact>
       </section>
@@ -109,15 +109,15 @@ export default function AboutPage() {
       <section>
         <SectionHeader
           eyebrow="Story"
-          title="A bit about me"
-          text="Practical work that ships, measures, and improves."
+          title="Little about me"
+          text="Practical work that deploys, measures, and improves."
         />
         <div className="prose prose-slate max-w-none">
           <p>
             I'm Inemesit David, a developer and digital marketer based in Accra. I help small businesses look sharp online and collect more enquiries without guessing.
           </p>
           <p>
-            I care about simple structure, clear copy, and pages that load fast. I prefer shipping something solid, measuring results, and improving with real data.
+            I care about simple structure, clear copy, and pages that load fast. I prefer building something solid, measuring results, and improving with real data.
           </p>
           <p>
             You get quick communication, clean code, and a practical plan. I meet you where you are, then build what will move the needle first.
@@ -135,7 +135,7 @@ export default function AboutPage() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card title="Discover" items={["Short brief", "Pages and priorities", "Success metrics"]} />
           <Card title="Build" items={["Next.js and Tailwind", "Content hierarchy", "On-page SEO and CTAs"]} />
-          <Card title="Measure" items={["GA4 events for calls and forms", "Review and refine", "Simple reports you can read"]} />
+          <Card title="Measure" items={["Google analytic events for calls and forms", "Review and refine", "Simple reports you can read"]} />
         </div>
       </section>
 
@@ -153,11 +153,11 @@ export default function AboutPage() {
           />
           <Card
             title="Performance"
-            items={["Fast loads on Vercel", "Core Web Vitals in mind", "Image and asset optimization"]}
+            items={["Fast loads", "Core Web Vitals in mind", "Image and asset optimization"]}
           />
           <Card
             title="Growth and analytics"
-            items={["GA4 events and funnels", "SEO basics done right", "Simple reports and next steps"]}
+            items={["Google analytic events and funnels", "SEO basics done right", "Simple reports and next steps"]}
           />
         </div>
       </section>
@@ -166,9 +166,9 @@ export default function AboutPage() {
       <section>
         <SectionHeader eyebrow="Results" title="Kind words" text="Short quotes from recent projects." />
         <div className="grid gap-4 rounded-2xl border bg-white p-6">
-          <Quote>Clean build and more calls in week one.</Quote>
-          <Quote>Fast delivery and easy to maintain.</Quote>
-          <Quote>Finally a site that explains our services clearly.</Quote>
+          Clean build and more calls in week one.
+          Fast delivery and easy to maintain.
+          Finally a website that explains your services clearly.
           <div className="pt-2">
             <Link href="/work" className="text-sm font-medium underline-offset-4 hover:underline">
               See my work
@@ -186,8 +186,8 @@ export default function AboutPage() {
         />
         <dl className="grid gap-4 rounded-2xl border bg-white p-6 divide-y sm:divide-y-0 sm:grid-cols-2 lg:grid-cols-3">
           <Fact title="Based in Accra">Work with Ghanaian and U.S. clients</Fact>
-          <Fact title="Background">ICT degree with 8+ years in digital marketing and web development</Fact>
-          <Fact title="Stack">Next.js, React, Tailwind, Vercel, GA4, SEO tools</Fact>
+          <Fact title="Background">ICT degree with 2+ years in digital marketing and web development</Fact>
+          <Fact title="Stack">Next.js, React, Tailwind, Google Domain, Vercel, Google Analytics, SEO tools</Fact>
           <Fact title="Delivery">Fast turnarounds, clean code, measurable results</Fact>
           <Fact title="Extras">Content writing in Web3 and business, branding support</Fact>
           <Fact title="Personal">Football on weekends, design systems, dad life</Fact>

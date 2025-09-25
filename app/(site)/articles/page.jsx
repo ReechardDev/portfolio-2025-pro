@@ -1,72 +1,33 @@
-// app/(site)/articles/page.jsx 
-import SectionHeader from "../../../components/SectionHeader";
+import Link from "next/link";
+import SectionHeader from "@/components/SectionHeader";
+import { getAllArticles } from "@/lib/articles";
 
-export const metadata = {
-  title: "Articles | Inemesit David",
-  description:
-    "Short, practical notes on web development, design rhythm, GA4 events, and service-site IA.",
-  alternates: { canonical: "/articles" },
-  openGraph: {
-    title: "Articles — Inemesit David",
-    description:
-      "Short, practical notes on web development, design rhythm, GA4 events, and service-site IA.",
-    url: "https://portfolio-2025-pro.vercel.app/articles",
-    type: "website",
-  },
-};
-
-const ARTICLES = [
-  {
-    title: "Service Website IA: How to Make it Obvious",
-    date: "Wed Aug 20 2025",
-    href: "#",
-    excerpt:
-      "A practical IA checklist so visitors instantly know what you do and how to contact you.",
-  },
-  {
-    title: "GA4 Events to Track for Local Services",
-    date: "Thu Aug 28 2025",
-    href: "#",
-    excerpt:
-      "Essential events (call, WhatsApp, form) to measure real leads—plus simple naming tips.",
-  },
-  {
-    title: "Tailwind Component Rhythm for Readability",
-    date: "Mon Sep 01 2025",
-    href: "#",
-    excerpt:
-      "Spacing, font sizes, and small utility patterns that keep pages scannable and clean.",
-  },
-];
-
-function formatDate(input) {
-  const d = new Date(input);
-  return isNaN(d)
-    ? input
-    : d.toLocaleDateString("en-GB", { month: "short", day: "numeric", year: "numeric" });
-}
+export const metadata = { title: "Articles" };
 
 export default function ArticlesPage() {
+  const articles = getAllArticles();
+
   return (
-    <main id="content" className="mx-auto max-w-6xl px-4 py-12">
-      <SectionHeader eyebrow="Short, practical notes" title="Articles" text="" />
-      <div className="mt-6 grid gap-4">
-        {ARTICLES.map((a) => (
-          <a
-            key={a.title}
-            href={a.href}
-            className="group rounded-2xl border border-gray-200 p-5 bg-white transition hover:bg-gray-50 hover:border-brand-cta-hover"
+    <main className="mx-auto max-w-6xl px-4 py-16">
+      <SectionHeader
+        eyebrow="Articles"
+        title="Notes, how-tos & quick wins"
+        text="Short, practical reads from real projects."
+      />
+
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {articles.map((a) => (
+          <Link
+            key={a.slug}
+            href={`/articles/${a.slug}`}
+            className="block rounded-2xl border border-slate-200 p-5 shadow-sm transition hover:shadow-md"
           >
-            <div className="font-medium">{a.title}</div>
-            <div className="mt-1 text-xs text-gray-500">
-              {formatDate(a.date)}{" "}
-              <span className="inline-block transition group-hover:translate-x-0.5">→</span>
+            <h3 className="text-lg font-semibold">{a.title}</h3>
+            <p className="mt-2 text-sm text-slate-600">{a.excerpt}</p>
+            <div className="mt-4 text-xs text-slate-500">
+              {a.date} • {a.readTime}
             </div>
-            <p className="mt-2 text-sm text-slate-600">
-              {a.excerpt ||
-                "A quick read on improving small service websites with clear paths to contact and GA4 tracking."}
-            </p>
-          </a>
+          </Link>
         ))}
       </div>
     </main>

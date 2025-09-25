@@ -19,7 +19,7 @@ export default function Footer() {
       {/* Top band: message + CTA */}
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-2 items-center">
         <div>
-          <div className="font-semibold">Let’s build something users love.</div>
+          <div className="font-semibold">Let's build a project together.</div>
           <div className="text-sm text-gray-600 mt-1">
             Next.js · Google Analytics · Product-Thinking · SEO
           </div>
@@ -45,7 +45,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="mx-auto max-w-6xl px-4 pb-6 text-xs text-gray-500">
-        © {new Date().getFullYear()} Inemesit David. All rights reserved.
+        © {new Date().getFullYear()} Inemesit R. David. All rights reserved.
       </div>
     </footer>
   );

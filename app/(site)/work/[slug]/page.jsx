@@ -22,7 +22,7 @@ export default async function CaseStudyPage({ params }) {
     return (
       <main className="mx-auto max-w-5xl px-4 py-16">
         <h1 className="text-2xl font-semibold">Not found</h1>
-        <p className="mt-2 text-slate-600">This case study doesn’t exist.</p>
+        <p className="mt-2 text-slate-600">This case study doesn't exist.</p>
         <div className="mt-6">
           <ButtonCTA as={Link} href="/work">Back to work</ButtonCTA>
         </div>

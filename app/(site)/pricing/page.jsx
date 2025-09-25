@@ -6,10 +6,10 @@ import ButtonCTA from "../../../components/ui/ButtonCTA";
 const PLANS = [
   {
     name: "Starter",
-    price: "₵1,000 – ₵2,500",
+    price: "₵1,500 – ₵2,500",
     audience: "Small shops & solo service providers",
     features: [
-      "1–5 pages (Home, About, Services/Products, Contact)",
+      "1-5 pages (Home, About, Services/Products, Contact)",
       "Mobile-friendly",
       "WhatsApp button",
       "Basic Google listing setup",
@@ -37,8 +37,7 @@ const PLANS = [
     price: "₵6,000+",
     audience: "Car sellers, dealerships & larger businesses",
     features: [
-      "Unlimited pages",
-      "Listings with search & filters",
+      "Everything in starter & Premium",
       "Admin panel (manage cars/products)",
       "Optional online payments",
       "Advanced SEO + speed optimization",
@@ -91,7 +90,7 @@ export default function PricingPage() {
       <section className="mt-10 rounded-2xl border border-gray-200 bg-white p-6">
         <div className="font-semibold text-slate-900">Hosting & Domains (Ghana)</div>
         <p className="mt-2 text-sm text-gray-600">
-          Typical yearly costs: small sites ₵150–₵500 (Vercel free plan + .com), bigger listing sites ₵1,000–₵3,000
+          Typical yearly costs: small sites ₵150-₵500 (Vercel free plan + .com), bigger listing sites ₵1,000–₵3,000
           (cloud/VPS). See the full guide for details.
         </p>
         <div className="mt-4">

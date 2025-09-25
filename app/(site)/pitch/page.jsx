@@ -78,8 +78,8 @@ export default function PitchPage() {
         to build what matters quickly, then iterate with data.
       </p>
       <p className="mt-4 leading-relaxed text-gray-800">
-        Over <strong>8+ years</strong> across Ghana ↔ US, I've helped small
-        teams move from idea to <strong>conversion-ready</strong> sites,
+        Over <strong>2+ years</strong> across Ghana ↔ US, I've helped small
+        teams move from idea to <strong>conversion-ready</strong> websites,
         clarifying messaging, improving <strong>UX</strong>, and tracking the
         moments that drive leads. If you're looking for a partner who can
         design, build, and <strong>prove impact</strong>, let's talk.

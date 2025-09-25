@@ -1,5 +1,6 @@
 // app/layout.js
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata = {
   metadataBase: new URL("https://portfolio-2025-pro.vercel.app"),
@@ -25,15 +26,29 @@ export const metadata = {
     images: ["/og/default.png"],
   },
   alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
 };
 
 export const viewport = {
   themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="ltr">
+      <head>
+        {/* Perf: help GA load quicker */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* Favicons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
+
       <body className="min-h-screen bg-white text-slate-900 antialiased">
         {/* Accessibility helper */}
         <a
@@ -42,6 +57,29 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
+
+        {/* --- Google Analytics 4 (global) --- */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q9CMCQCW0C"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            // Prevent double-init across segment layouts
+            if (!window.__ga_inited) {
+              window.__ga_inited = true;
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = window.gtag || gtag;
+              gtag('js', new Date());
+              gtag('config', 'G-Q9CMCQCW0C', {
+                page_path: location.pathname + location.search
+              });
+            }
+          `}
+        </Script>
+        {/* --- /GA4 --- */}
+
         {children}
       </body>
     </html>

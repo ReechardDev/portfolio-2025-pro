@@ -29,7 +29,7 @@ export default async function WorkPage() {
     <main id="content" className="mx-auto max-w-6xl px-4 py-16">
       <header className="max-w-2xl">
         <h1 className="text-3xl/tight font-semibold text-slate-900">Selected Work</h1>
-        <p className="mt-2 text-slate-600">Case studies and live sites I’ve built and improved.</p>
+        <p className="mt-2 text-slate-600">Case studies i'm currently working on.</p>
       </header>
 
       <section className="mt-10 grid gap-6 sm:grid-cols-2">
