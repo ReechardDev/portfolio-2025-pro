@@ -4,6 +4,10 @@ import Footer from "../../components/Footer";
 import GAListener from "../../components/GAListener";
 import Script from "next/script";
 
+// Force dynamic rendering for the whole (site) segment to avoid prerender errors
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata = {
   title: {
     default: "Inemesit David — Product-minded Web Developer",
@@ -11,7 +15,6 @@ export const metadata = {
   },
   description:
     "I build clean, conversion-ready websites for local businesses using Next.js + Tailwind, measured with GA4.",
-  // Useful for canonical/OG
   metadataBase: new URL("https://portfolio-2025-pro.vercel.app"),
   alternates: { canonical: "/" },
   openGraph: {
@@ -28,35 +31,16 @@ export const metadata = {
     description:
       "Clean, conversion-ready websites with Next.js + Tailwind, measured with GA4.",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function SiteLayout({ children }) {
-  // Segment layout: no <html>/<body> and no globals.css import here.
-  // GA scripts live here so they load for the whole (site) subtree.
+  // NOTE:
+  // - GA4 is initialized globally in app/layout.js (root). No GA script here to avoid double-init.
+  // - We still run GAListener (client) for pageview + CTA tracking.
   return (
     <>
-      {/* Google Analytics 4 */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-Q9CMCQCW0C"
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          if (!window.gtag) window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-Q9CMCQCW0C', {
-            page_path: window.location.pathname + window.location.search,
-          });
-        `}
-      </Script>
-
-      {/* Person JSON-LD for richer results */}
+      {/* Person JSON-LD for richer search results */}
       <Script id="ld-person" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -66,9 +50,7 @@ export default function SiteLayout({ children }) {
           jobTitle: "Web Developer",
           worksFor: { "@type": "Organization", name: "Reech-Out Marketing Agency" },
           email: "mailto:inemesitdavid90@gmail.com",
-          sameAs: [
-            // add socials later if you want richer cards
-          ],
+          sameAs: [],
         })}
       </Script>
 

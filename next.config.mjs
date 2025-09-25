@@ -3,7 +3,8 @@ import path from "path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Ensure both Turbopack and Webpack builds can resolve "@"
+  reactStrictMode: true,
+  // IMPORTANT: do NOT set output: 'export' here (it breaks SSR)
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
