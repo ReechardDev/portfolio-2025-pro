@@ -56,7 +56,7 @@ export default async function HomePage() {
 
       {/* Skills */}
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <SectionHeader eyebrow="Skills" title="Skills I use in building" text="" />
+        <SectionHeader eyebrow="Skills" title="Skills I build with" text="" />
         <SkillPills skills={SKILLS} />
       </section>
 
