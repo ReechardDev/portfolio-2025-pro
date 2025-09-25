@@ -46,10 +46,10 @@ export default async function HomePage() {
       {/* Warm intro + proof bullets */}
       <section className="mx-auto max-w-6xl px-4 pt-2">
         <p className="text-slate-700">
-          I'm <strong>Inemesit David</strong>. I build clean, fast websites for small businesses and local owners, then wire in Google Analytics so we can see what works.
+          I'm <strong>Inemesit Richard David</strong>. I build clean, fast websites for small businesses and local owners, then wire in Google Analytics so we can see what works.
         </p>
         <ul className="mt-2 list-disc pl-5 text-sm text-slate-700">
-          <li>Events on calls, WhatsApp, and forms</li>
+          <li>Analytic Events on calls, WhatsApp, and forms</li>
           <li>Real gains in load speed and qualified enquiries</li>
         </ul>
       </section>

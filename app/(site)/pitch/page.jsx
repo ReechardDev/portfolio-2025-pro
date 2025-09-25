@@ -36,7 +36,7 @@ export default function PitchPage() {
         {/* Intro copy */}
         <p className="mt-6 text-base md:text-lg text-slate-700">
           I build <span className="font-semibold">clean, fast</span> web
-          experiences that are <span className="font-semibold">measured</span> — so
+          experiences that are <span className="font-semibold">measured</span> so
           websites are not just pretty; they perform. I combine{" "}
           <span className="font-semibold">Next.js/Tailwind</span> with{" "}
           <span className="font-semibold">content strategy</span> and{" "}
@@ -46,19 +46,19 @@ export default function PitchPage() {
 
         <p className="mt-4 text-base md:text-lg text-slate-700">
           Over <span className="font-semibold">{EXPERIENCE_YEARS}</span> across Ghana → US,
-          I’ve helped small teams move from idea to{" "}
+          I've helped small teams move from idea to{" "}
           <span className="font-semibold">conversion-ready</span> websites,
           clarifying messaging, improving <span className="font-semibold">UX</span>,
-          and tracking the moments that drive leads. If you’re looking for a
+          and tracking the moments that drive leads. If you're looking for a
           partner who can design, build, and{" "}
-          <span className="font-semibold">prove impact</span>, let’s talk.
+          <span className="font-semibold">prove impact</span>, let's talk.
         </p>
 
         {/* CTAs */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <ButtonCTA
             href="/contact"
-            label="Let’s work"
+            label="Let's work"
             ariaLabel="Contact Inemesit David"
             data-ga="pitch_contact"
             data-ga-label="pitch_lets_work"

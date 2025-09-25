@@ -11,7 +11,7 @@ export const metadata = {
   description: "Tell me about your project. I reply within 24 to 48 hours.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact — Inemesit David",
+    title: "Contact - Inemesit David",
     description: "Tell me about your project. I reply within 24 to 48 hours.",
     url: "https://portfolio-2025-pro.vercel.app/contact",
     type: "website",
@@ -21,15 +21,15 @@ export const metadata = {
 export default function ContactPage() {
   // Config + safe fallbacks
   const EMAIL = SITE?.email || "inemesitdavid90@gmail.com";
-  const PHONE_DISPLAY = SITE?.phoneDisplay || "+233 5956-33424";
+  const PHONE_DISPLAY = SITE?.phoneDisplay || "+233 5956 33424";
   const PHONE_RAW = SITE?.phone || "+2330595633424";
   const telHref = `tel:${(PHONE_RAW || PHONE_DISPLAY).replace(/[^\d+]/g, "")}`;
   const WHATSAPP = SITE?.whatsappLink || "https://wa.me/+233595633424";
-  const LINKEDIN = SITE?.linkedin || "#";
+  const LINKEDIN = SITE?.linkedin || "https://www.linkedin.com/in/inemesit-david-739676318/";
   const GITHUB = SITE?.github || "https://github.com/ReechardDev";
-  const INSTAGRAM = SITE?.instagram || "#";
-  const INTAKE_FORM = "/files/intake-form.pdf"; // swap to your actual path
-  const BOOK_LINK = SITE?.bookLink || "https://cal.com/"; // swap to your booking link
+  const INSTAGRAM = SITE?.instagram || "https://www.instagram.com/reechard09?igsh=Y3Y1YXVlcnFwd3Rn&utm_source=qr";
+  const INTAKE_FORM = "/files/intake-form.pdf"; 
+  const BOOK_LINK = SITE?.bookLink || "https://cal.com/inemesit-david-rladdd/15min";
 
 
   return (
