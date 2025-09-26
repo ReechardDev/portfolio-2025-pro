@@ -38,17 +38,21 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-brand-cta-hover text-white border-b border-white/25 shadow-sm">
-      {/* Container: same max width as site, but brand anchored LEFT */}
-      <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-10 h-16 flex items-center">
-        {/* Brand (locked to left) */}
+      {/* Force extra left padding: important classes + inline fallback */}
+      <div
+        className="mx-auto w-full max-w-screen-2xl !pl-24 sm:!pl-28 lg:!pl-32 !pr-6 sm:!pr-10 lg:!pr-14 h-16 flex items-center"
+        style={{ paddingLeft: "8rem", paddingRight: "1.5rem" }}
+      >
+        {/* Brand: add an extra left margin that also uses !important */}
         <Link
           href="/"
-          className="flex items-center gap-2 pl-0.5 mr-4"
+          className="flex items-center gap-2 pl-0.5 mr-4 !ml-4 sm:!ml-6 lg:!ml-8"
           aria-label="Go to Home"
+          style={{ marginLeft: "1rem" }}
         >
           <span className="relative block h-7 w-7 overflow-hidden rounded-full ring-2 ring-white/40">
             <Image
-              src="/images/about/portrait.webp" // swap to logo path if you prefer
+              src="/images/about/portrait.webp" // swap to logo if preferred
               alt="Inemesit David"
               fill
               sizes="28px"
@@ -61,7 +65,7 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Desktop nav (pushed to the RIGHT) */}
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-2 ml-auto">
           {NAV_LINKS.map((l) => (
             <NavLink key={l.href} href={l.href}>
@@ -73,7 +77,7 @@ export default function Header() {
           </ButtonCTA>
         </nav>
 
-        {/* Mobile menu button (stays at far right on mobile) */}
+        {/* Mobile menu button */}
         <button
           onClick={() => setOpen((v) => !v)}
           className="md:hidden ml-auto p-2 rounded-2xl hover:bg-white/10"
@@ -84,10 +88,13 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu: match forced padding */}
       {open && (
         <div className="md:hidden border-t border-white/20 bg-brand-cta-hover">
-          <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-10 py-2 flex flex-col">
+          <div
+            className="mx-auto w-full max-w-screen-2xl !pl-24 sm:!pl-28 lg:!pl-32 !pr-6 sm:!pr-10 lg:!pr-14 py-2 flex flex-col"
+            style={{ paddingLeft: "8rem", paddingRight: "1.5rem" }}
+          >
             {NAV_LINKS.map((l) => (
               <NavLink key={l.href} href={l.href} onClick={() => setOpen(false)}>
                 {l.label}
