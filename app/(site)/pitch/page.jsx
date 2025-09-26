@@ -5,8 +5,8 @@ import { EXPERIENCE_YEARS } from "../../../lib/site";
 
 export const metadata = { title: "Elevated Pitch" };
 
-const BADGES = [EXPERIENCE_YEARS, "Next.js/Tailwind", "GA4/SEO", "Ghana ↔ US"];
-const VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // swap to your real link
+const BADGES = [EXPERIENCE_YEARS, "Next.js/Tailwind", "Google Analytic/SEO", "Ghana ↔ US"];
+const VIDEO_URL = "https://youtu.be/thfRCN7Nzxo"; 
 
 export default function PitchPage() {
   return (
